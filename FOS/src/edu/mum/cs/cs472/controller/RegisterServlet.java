@@ -21,23 +21,23 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("RegisterServlet: doPost");
-        String first_name = request.getParameter("first_name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        User newUser = new User();
-        newUser.setFirstName(first_name);
-        newUser.setEmail(email);
-        newUser.setPassword(password);
-        String regResult = newUser.registerUser(newUser);
-        if(regResult.equals("SUCCESS"))  {
-            System.out.println("Success");
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else {
-            System.out.println("Failure");
-            request.setAttribute("errMessage", userRegistered);
-            request.getRequestDispatcher("register").forward(request, response);
-        }
+//        String first_name = request.getParameter("first_name");
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+//
+//        User newUser = new User();
+//        newUser.setFirstName(first_name);
+//        newUser.setEmail(email);
+//        newUser.setPassword(password);
+//        String regResult = newUser.registerUser(newUser);
+//        if(regResult.equals("SUCCESS"))  {
+//            System.out.println("Success");
+//            request.getRequestDispatcher("home.jsp").forward(request, response);
+//        } else {
+//            System.out.println("Failure");
+//            request.setAttribute("errMessage", userRegistered);
+//            request.getRequestDispatcher("register").forward(request, response);
+//        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
