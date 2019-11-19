@@ -1,6 +1,6 @@
 package edu.mum.cs.cs472.controller;
 
-import edu.mum.cs.cs472.dao.impl.UserServiceImpl;
+import edu.mum.cs.cs472.service.impl.UserServiceImpl;
 import edu.mum.cs.cs472.service.UserService;
 
 import javax.servlet.ServletException;
@@ -50,8 +50,6 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        userService.getAllUser();
-
         System.out.print("im here do get");
 
         System.out.print(userService.getAllUser());

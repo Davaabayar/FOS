@@ -1,4 +1,4 @@
-package edu.mum.cs.cs472.dao.impl;
+package edu.mum.cs.cs472.service.impl;
 
 import edu.mum.cs.cs472.dao.User;
 import edu.mum.cs.cs472.service.UserService;
