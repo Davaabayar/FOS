@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+
     public String registerUser(User userData){
         System.out.println("UserServiceImp.registeruser" + userData.toString());
         try {
@@ -53,6 +54,22 @@ public class UserServiceImpl implements UserService {
         }
         return "Oops.. Something went wrong there..!";
     }
+
+    @Override
+    public List<User> getUserById(int userId) {
+        return null;
+    }
+
+    @Override
+    public User login() {
+        return null;
+    }
+
+    @Override
+    public void logout() {
+
+    }
+
     public DBConnection getDbConnection() {
         return dbConnection != null ? this.dbConnection : (this.dbConnection = new DBConnection());
     }
