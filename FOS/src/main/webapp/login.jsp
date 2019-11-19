@@ -12,7 +12,7 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <button id="submitBtn" type="submit"
-                    class="btn btn-primary btn-lg btn-block mt40">Create account
+                    class="btn btn-primary btn-lg btn-block mt40">Login
             </button>
         </form>
         <p class="mt-2 text-center">Create account? <a href="${pageContext.request.contextPath}/register">Register here</a></p>
