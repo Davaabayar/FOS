@@ -1,3 +1,5 @@
+package edu.cs.cs472.util;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +16,7 @@ public class DBConnection {
     private void readProperties() {
         if (properties == null) {
             properties = new Properties();
-            try (InputStream input = getClass().getResourceAsStream("../config/common.properties")) {
+            try (InputStream input = getClass().getResourceAsStream("../../../../../config/common.properties")) {
                 properties.load(input);
                 // get the property value and print it out
                 System.out.println(properties.getProperty("db.url"));

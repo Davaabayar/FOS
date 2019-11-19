@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `fos`.`users` (
   `user_id` INT NOT NULL,
   `first_name` VARCHAR(100) NOT NULL,
   `last_name` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(250) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `role` ENUM('admin', 'client') NOT NULL DEFAULT 'client',
   `created` DATETIME NOT NULL,

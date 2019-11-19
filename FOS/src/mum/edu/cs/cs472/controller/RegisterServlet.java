@@ -1,3 +1,9 @@
+package edu.cs.cs472.controller;
+
+import edu.cs.cs472.dao.impl.UserServiceImpl;
+import edu.cs.cs472.service.UserService;
+import edu.cs.cs472.util.DBConnection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,10 +15,10 @@ import java.sql.Connection;
 @WebServlet(name = "RegisterServlet", urlPatterns = "/register", description = "RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
-    DBConnection dbConnection;
+    private UserService userService;
 
     public RegisterServlet() {
-        dbConnection = new DBConnection();
+        userService = new UserServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +26,11 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Connection connection = dbConnection.getConnection();
+        userService.getAllUser();
+
+        System.out.print("im here do get");
+
+        System.out.print(userService.getAllUser().size());
     }
 
 }
