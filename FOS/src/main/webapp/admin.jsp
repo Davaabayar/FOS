@@ -105,15 +105,19 @@
                 <div class="card h-100">
                     <h4 class="card-header">User List</h4>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cras justo odio
-                                <button type="button" class="btn btn-outline-danger">Danger</button>
+                                <button type="button" class="btn btn-primary btn-sm">Small button</button>
                             </li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Dapibus ac facilisis in
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Morbi leo risus
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-footer">

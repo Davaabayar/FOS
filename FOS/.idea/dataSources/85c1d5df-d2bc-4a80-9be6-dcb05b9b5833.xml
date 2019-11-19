@@ -1380,25 +1380,31 @@ food_id</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="330" parent="281" name="fk_users_images_idx">
+    <column id="330" parent="281" name="password">
+      <Position>10</Position>
+      <DataType>varchar(250)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="331" parent="281" name="fk_users_images_idx">
       <ColNames>image_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="331" parent="281" name="fk_users_addresses1_idx">
+    <index id="332" parent="281" name="fk_users_addresses1_idx">
       <ColNames>address_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="332" parent="281" name="PRIMARY">
+    <key id="333" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="333" parent="281" name="fk_users_images">
+    <foreign-key id="334" parent="281" name="fk_users_images">
       <ColNames>image_id</ColNames>
       <RefTableName>images</RefTableName>
       <RefColNames>image_id</RefColNames>
     </foreign-key>
-    <foreign-key id="334" parent="281" name="fk_users_addresses1">
+    <foreign-key id="335" parent="281" name="fk_users_addresses1">
       <ColNames>address_id</ColNames>
       <RefTableName>addresses</RefTableName>
       <RefColNames>address_id</RefColNames>

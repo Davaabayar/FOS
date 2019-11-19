@@ -15,6 +15,8 @@ public class User {
     public User() {
     }
 
+
+
     public User(String first_name, String email, Role role, Date created, int status, String password) {
         this.first_name = first_name;
         this.email = email;
@@ -97,6 +99,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Get.HI
+     **/
+
+    public boolean getHastUserId() {
+        return this.getUser_id() != 0;
     }
 
     @java.lang.Override

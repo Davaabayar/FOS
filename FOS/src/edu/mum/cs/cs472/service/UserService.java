@@ -10,7 +10,7 @@ public interface UserService {
 
     public List<User> getUserById(int userId);
 
-    public User login();
+    public User login(String username, String password);
 
     public void logout();
 
