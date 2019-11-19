@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "RegisterServlet", urlPatterns = "/register", description = "RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = "/login", description = "LoginServlet")
+public class LoginServlet extends HttpServlet {
 
     private UserService userService;
 
-    public RegisterServlet() {
+    public LoginServlet() {
         userService = new UserServiceImpl();
     }
 
@@ -24,7 +24,10 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        userService.getAllUser();
 
+        System.out.print("im here do get");
+
+        System.out.print(userService.getAllUser().size());
     }
-
 }
