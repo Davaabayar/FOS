@@ -96,4 +96,18 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", created=" + created +
+                ", status=" + status +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
