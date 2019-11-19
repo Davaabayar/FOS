@@ -37,6 +37,22 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+    public String registerUser(User userData){
+        System.out.println("UserServiceImp.registeruser" + userData.toString());
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("insert into fos.users(first_name, email, password) values (?,?,?)");
+            pstmt.setString(1, userData.getFirst_name());
+            pstmt.setString(2, userData.getEmail());
+            pstmt.setString(3, userData.getPassword());
+            int i= pstmt.executeUpdate();
+            if (i!=0)
+                return "SUCCESS";
+        }catch(SQLException e) {
+            System.err.println(e);
+        }
+        return "Oops.. Something went wrong there..!";
+    }
     public DBConnection getDbConnection() {
         return dbConnection != null ? this.dbConnection : (this.dbConnection = new DBConnection());
     }
