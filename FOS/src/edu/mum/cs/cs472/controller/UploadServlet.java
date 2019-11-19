@@ -13,7 +13,7 @@ import java.io.IOException;
 public class UploadServlet extends HttpServlet {
 
     public UploadServlet() {
-        
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

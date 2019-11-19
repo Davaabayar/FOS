@@ -1,5 +1,7 @@
 package edu.mum.cs.cs472.dao;
 
+import java.util.Date;
+
 public class User {
     private int user_id;
     private String first_name;

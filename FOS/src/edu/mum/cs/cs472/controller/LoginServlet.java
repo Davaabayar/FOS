@@ -3,6 +3,7 @@ package edu.mum.cs.cs472.controller;
 import edu.mum.cs.cs472.service.impl.UserServiceImpl;
 import edu.mum.cs.cs472.service.UserService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +21,12 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println(request.getParameter("email"));
+        System.out.println(request.getParameter("password"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        userService.getAllUser();
-
-        System.out.print("im here do get");
-
-        System.out.print(userService.getAllUser().size());
+        RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+        rd.forward(request, response);
     }
 }
