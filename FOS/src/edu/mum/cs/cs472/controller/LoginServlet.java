@@ -1,5 +1,6 @@
 package edu.mum.cs.cs472.controller;
 
+import edu.mum.cs.cs472.dao.User;
 import edu.mum.cs.cs472.service.impl.UserServiceImpl;
 import edu.mum.cs.cs472.service.UserService;
 
@@ -21,8 +22,15 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("email"));
-        System.out.println(request.getParameter("password"));
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        User user = userService.login(email, password);
+
+        if (user.getHastUserId()) {
+            System.out.println("return user" + user.getUser_id());
+        } else {
+            response.sendRedirect("/login");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

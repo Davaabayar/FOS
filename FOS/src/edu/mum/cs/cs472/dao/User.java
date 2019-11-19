@@ -8,14 +8,14 @@ public class User {
     private String last_name;
     private String email;
     private Role role;
-    private String created;
+    private Date created;
     private int status;
     private String password;
 
     public User() {
     }
 
-    public User(String first_name, String email, Role role, String created, int status, String password) {
+    public User(String first_name, String email, Role role, Date created, int status, String password) {
         this.first_name = first_name;
         this.email = email;
         this.role = role;
@@ -24,13 +24,13 @@ public class User {
         this.password = password;
     }
 
-    public User(int user_id, String first_name, String last_name, String email, Role role, String created, int status, String password) {
+    public User(int user_id, String first_name, String last_name, String email, Role role, Date date, int status, String password) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.role = role;
-        this.created = created;
+        this.created = date;
         this.status = status;
         this.password = password;
     }
@@ -75,11 +75,11 @@ public class User {
         this.role = role;
     }
 
-    public String getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
@@ -97,6 +97,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Get.HI
+     **/
+
+    public boolean getHastUserId() {
+        return this.getUser_id() != 0;
     }
 
     @java.lang.Override

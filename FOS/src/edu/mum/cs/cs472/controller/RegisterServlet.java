@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
         newUser.setEmail(email);
         newUser.setPassword(password);
         String dateStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());        
-        newUser.setCreated(dateStr);
+        //newUser.setCreated(dateStr);
         newUser.setRole(Role.client);
         newUser.setStatus(1);
         
