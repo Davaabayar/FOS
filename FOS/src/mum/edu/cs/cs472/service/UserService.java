@@ -1,6 +1,6 @@
-package edu.cs.cs472.service;
+package mum.edu.cs.cs472.service;
 
-import edu.cs.cs472.dao.User;
+import mum.edu.cs.cs472.dao.User;
 
 import java.util.List;
 

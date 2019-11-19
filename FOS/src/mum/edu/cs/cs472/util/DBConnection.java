@@ -1,4 +1,4 @@
-package edu.cs.cs472.util;
+package mum.edu.cs.cs472.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

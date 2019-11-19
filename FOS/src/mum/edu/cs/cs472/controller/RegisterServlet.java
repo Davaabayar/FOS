@@ -1,8 +1,8 @@
-package edu.cs.cs472.controller;
+package mum.edu.cs.cs472.controller;
 
-import edu.cs.cs472.dao.impl.UserServiceImpl;
-import edu.cs.cs472.service.UserService;
-import edu.cs.cs472.util.DBConnection;
+import mum.edu.cs.cs472.dao.impl.UserServiceImpl;
+import mum.edu.cs.cs472.service.UserService;
+import mum.edu.cs.cs472.util.DBConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

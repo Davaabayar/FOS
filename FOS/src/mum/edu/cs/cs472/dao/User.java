@@ -1,4 +1,4 @@
-package edu.cs.cs472.dao;
+package mum.edu.cs.cs472.dao;
 
 public class User {
 

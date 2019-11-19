@@ -1,8 +1,8 @@
-package edu.cs.cs472.dao.impl;
+package mum.edu.cs.cs472.dao.impl;
 
-import edu.cs.cs472.dao.User;
-import edu.cs.cs472.service.UserService;
-import edu.cs.cs472.util.DBConnection;
+import mum.edu.cs.cs472.dao.User;
+import mum.edu.cs.cs472.service.UserService;
+import mum.edu.cs.cs472.util.DBConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
