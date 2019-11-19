@@ -30,8 +30,10 @@ public class LogoutServlet extends HttpServlet {
         }
         //invalidate the session if exists
         HttpSession session = request.getSession();
-        User loggedUser = (User) session.getAttribute("loggedUser");
-        System.out.println(loggedUser.toString());
+        if (session.getAttribute("loggedUser") != null) {
+            User loggedUser = (User) session.getAttribute("loggedUser");
+            System.out.println(loggedUser.toString());
+        }
         session.invalidate();
         response.sendRedirect(request.getContextPath() + "/login");
     }

@@ -22,10 +22,11 @@ public class HomeServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("loggedUser");
+        if (session.getAttribute("loggedUser") != null) {
+            User user = (User) session.getAttribute("loggedUser");
 
-        request.setAttribute("email", user.getEmail());
-
+            request.setAttribute("email", user.getEmail());
+        }
         rd.forward(request, response);
     }
 }
