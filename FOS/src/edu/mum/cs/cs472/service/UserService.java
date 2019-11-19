@@ -14,5 +14,5 @@ public interface UserService {
 
     public void logout();
 
-
+    public String registerUser(User newUser);
 }
