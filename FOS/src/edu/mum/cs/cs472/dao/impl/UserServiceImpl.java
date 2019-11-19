@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUser() {
-
+        System.out.println("Get All Users");
         String queryString = "select first_name from users";
 
         List<User> list = new ArrayList<>();
@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
         } finally {
             this.getDbConnection().disconnect();
         }
+        System.out.println(list);
         return list;
     }
 

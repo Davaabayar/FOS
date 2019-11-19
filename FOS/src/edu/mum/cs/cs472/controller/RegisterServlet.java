@@ -20,7 +20,33 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("RegisterServlet: doPost");
+        //Copying all the input parameters in to local variables
+        String first_name = request.getParameter("first_name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
+        User user = new User();
+        //Using Java Beans - An easiest way to play with group of related data
+        user.setFirstName;
+        user.setEmail(email);
+        user.setUserName(userName);
+        user.setPassword(password);
+
+        UserDAO userDAO = new UserDAO();
+
+        //The core Logic of the Registration application is present here. We are going to insert user data in to the database.
+        String userRegistered = userDAO.registerUser(userBean);
+
+        if(userRegistered.equals("SUCCESS"))   //On success, you can display a message to user on Home page
+        {
+            request.getRequestDispatcher("/Home.jsp").forward(request, response);
+        }
+        else   //On Failure, display a meaningful message to the User.
+        {
+            request.setAttribute("errMessage", userRegistered);
+            request.getRequestDispatcher("/Register.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
 
         System.out.print("im here do get");
 
-        System.out.print(userService.getAllUser().size());
+        System.out.print(userService.getAllUser());
     }
 
 }
