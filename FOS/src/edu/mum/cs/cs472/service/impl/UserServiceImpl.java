@@ -4,6 +4,7 @@ import edu.mum.cs.cs472.dao.User;
 import edu.mum.cs.cs472.service.UserService;
 import edu.mum.cs.cs472.util.DBConnection;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,10 +40,10 @@ public class UserServiceImpl implements UserService {
 
 
     public String registerUser(User userData){
-        System.out.println("UserServiceImp.registeruser" + userData.toString());
+        System.out.println("UserServiceImp.registeruser" + userData.toString());        
         try {
-            Connection connection = dataSource.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement("insert into fos.users(first_name, email, password) values (?,?,?)");
+        	String queryString = "insert into fos.users(first_name, email, password) values (?,?,?)";
+            PreparedStatement pstmt = this.getDbConnection().getConnection().prepareStatement(queryString);
             pstmt.setString(1, userData.getFirst_name());
             pstmt.setString(2, userData.getEmail());
             pstmt.setString(3, userData.getPassword());

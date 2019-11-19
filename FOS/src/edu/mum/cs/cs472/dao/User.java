@@ -8,14 +8,14 @@ public class User {
     private String last_name;
     private String email;
     private Role role;
-    private Date created;
+    private String created;
     private int status;
     private String password;
 
     public User() {
     }
 
-    public User(String first_name, String email, Role role, Date created, int status, String password) {
+    public User(String first_name, String email, Role role, String created, int status, String password) {
         this.first_name = first_name;
         this.email = email;
         this.role = role;
@@ -24,7 +24,7 @@ public class User {
         this.password = password;
     }
 
-    public User(int user_id, String first_name, String last_name, String email, Role role, Date created, int status, String password) {
+    public User(int user_id, String first_name, String last_name, String email, Role role, String created, int status, String password) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -75,11 +75,11 @@ public class User {
         this.role = role;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 
