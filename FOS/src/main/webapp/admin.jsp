@@ -133,9 +133,20 @@
                         <button type="button" class="btn btn-primary" style="width: 100%;">Add New</button>
                     </a>
                     <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                        <button class="btn m-btn"><i class="fa fa-edit"></i></button>
-                        <button class="btn m-btn"><i class="fa fa-close"></i></button>
+                        <ul class="list-group">
+                            <c:forEach items="${foodList}" var="food" varStatus="loop">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div style="max-width: 80%;">
+                                        <p>Name : <c:out value="${food.name}" /></p>
+                                        <p>Description : <c:out value="${food.description}" /></p>
+                                    </div>
+                                    <div>
+                                        <button class="btn m-btn"><i class="fa fa-edit"></i></button>
+                                        <button class="btn m-btn"><i class="fa fa-close"></i></button>
+                                    </div>
+                                </li>
+                            </c:forEach>
+                        </ul>
                     </div>
                     <div class="card-footer">
                     </div>

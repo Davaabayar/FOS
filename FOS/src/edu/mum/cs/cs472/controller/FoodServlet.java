@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(name = "FoodServlet", urlPatterns = "/food", description = "FoodServlet")
 public class FoodServlet extends HttpServlet {
@@ -28,12 +29,13 @@ public class FoodServlet extends HttpServlet {
         String price = request.getParameter("price");
         System.out.println("["+foodName+","+calories+","+foodType+","+description+","+imageId+","+price+"]");
 
-        Food newFood = new Food(foodName,Integer.parseInt(calories),description,foodType,Double.parseDouble(price),Integer.parseInt(imageId));
+        Food newFood = new Food(foodName,Integer.parseInt(calories),description,foodType,Double.parseDouble(price),Integer.parseInt(imageId),"",0,new Date());
 
         String regResult = this.foodService.newFood(newFood);
         if(regResult.equals("SUCCESS"))  {
             System.out.println("Success");
-            request.getRequestDispatcher("admin.jsp").forward(request, response);
+//            request.getRequestDispatcher("admin.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/admin");
         } else {
             System.out.println("Failure");
             request.setAttribute("errMessage", regResult);
