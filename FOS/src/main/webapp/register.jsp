@@ -27,14 +27,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name">*Name</label>
-                    <input type="name" name="first_name" id="name" class="form-control">
+                    <input type="name" name="first_name" id="name" class="form-control" required>
                     <label for="email">*Email</label>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control" required>
                     <label for="password">*Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                    <label for="phone">Phone</label> <input type="phone" name="phone" id="phone" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control" minlength="5" required>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="agree">
+                        <input type="checkbox" class="form-check-input" id="agree" onchange="document.getElementById('submitBtn').disabled = !this.checked;">
                         <label class="form-check-label" for="agree">
 									<span>I agree with the&nbsp; <a href="/terms-of-use">Terms of use</a>&nbsp; and the&nbsp;
 									<a href="/privacy-policy">Privacy Policy</a>
@@ -43,11 +42,18 @@
                 </div>
             </div>
             <button id="submitBtn" type="submit"
-                    class="btn btn-primary btn-lg btn-block mt40">Create account</button>
+                    class="btn btn-primary btn-lg btn-block mt40" disabled>Create account</button>
         </form>
         <p class="mt-2 text-center">Already have an account? <a href="login" >Login here</a></p>
     </section>
 </div>
 <%@ include file="fragments/footer.jsp"%>
+<script>
+        (function ()  
+        	agree.addEventListener("change",function(event){
+        		$("#submitBtn").disabled = $(this).checked;
+        	});
+        })();
+    </script>
 </body>
 </html>
