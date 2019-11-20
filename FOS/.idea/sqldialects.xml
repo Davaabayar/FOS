@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/edu/mum/cs/cs472/service/impl/UploadServiceImpl.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/src/edu/mum/cs/cs472/service/impl/UserServiceImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/edu/mum/cs/cs472/service/impl/FoodServiceImpl.java" dialect="GenericSQL" />
   </component>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/edu/mum/cs/cs472/service/impl/UserServiceImpl.java" dialect="GenericSQL" />
-  </component>
->>>>>>> a31f91d36946b9114e0003a43977951b640cb8b3
 </project>

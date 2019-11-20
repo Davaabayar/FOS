@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
         if (user != null && user.getHastUserId()) {
             HttpSession session = request.getSession();
             session.setAttribute("loggedUser", user);
-
             //using cookie for check is logged user
             Cookie loginCookie = new Cookie("email", email);
             loginCookie.setMaxAge(30 * 60);

@@ -129,8 +129,9 @@
             <div class="col-lg-12 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">Card Title</h4>
-                    <button type="button" class="btn btn-primary">Add New</button>
-
+                    <a href="food.jsp">
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Add New</button>
+                    </a>
                     <div class="card-body">
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
                         <button class="btn m-btn"><i class="fa fa-edit"></i></button>
