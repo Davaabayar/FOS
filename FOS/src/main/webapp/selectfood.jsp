@@ -25,7 +25,7 @@
 				<td>${f.name}</td>
 				<td>${f.type}</td>
 				<td>${f.price}</td>
-				<td align="center"><a href="CartServlet?id=${f.foodId}&action=add">Order Now</a></td>
+				<td align="center"><a href="order?id=${f.foodId}&action=add">Order Now</a></td>
 			</tr>
 		</c:forEach>		
 	</table>

@@ -38,8 +38,7 @@ public class CartServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		String id = request.getParameter("id");
 		int quantity = 1;
-		HttpSession session = request.getSession();
-		System.out.println("Seession created");
+		HttpSession session = request.getSession();	
 		switch (action) {
 			case "add":				
 				if(session.getAttribute("cart")==null){
@@ -71,7 +70,7 @@ public class CartServlet extends HttpServlet {
 			default:
 				break;
 		}
-		request.getRequestDispatcher("cart.jsp").forward(request, response);;
+		request.getRequestDispatcher("cart.jsp").forward(request, response);
 	}
 
 	private int isExisting(int id, List<Item> cart) {

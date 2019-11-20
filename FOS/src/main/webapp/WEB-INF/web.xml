@@ -5,24 +5,14 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
-    	<servlet-name>CartServlet</servlet-name>
-    	<display-name>CartServlet</display-name>
+    	<servlet-name>SelectFoodServlet</servlet-name>
+    	<display-name>SelectFoodServlet</display-name>
     	<description></description>
-    	<servlet-class>edu.mum.cs.cs472.controller.CartServlet</servlet-class>
-    </servlet>
-    <servlet>
-    	<servlet-name>CheckoutServlet</servlet-name>
-    	<display-name>CheckoutServlet</display-name>
-    	<description></description>
-    	<servlet-class>edu.mum.cs.cs472.controller.CheckoutServlet</servlet-class>
+    	<servlet-class>edu.mum.cs.cs472.controller.SelectFoodServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-    	<servlet-name>CartServlet</servlet-name>
-    	<url-pattern>/CartServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>CheckoutServlet</servlet-name>
-    	<url-pattern>/CheckoutServlet</url-pattern>
+    	<servlet-name>SelectFoodServlet</servlet-name>
+    	<url-pattern>/selectfood</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
