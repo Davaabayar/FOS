@@ -26,42 +26,71 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <%@ include file="fragments/header.jsp" %>
-    <%@ include file="upload.jsp" %>
+<%@ include file="fragments/header.jsp" %>
+<%@ include file="upload.jsp" %>
 
-    <div class="container">
-        <form style="margin-top: 22px;" action="food" method="POST">
-            <div class="form-group">
-                <label for="name">Food Name</label>
-                <input type="text" class="form-control" id="name" name="foodName" placeholder="Food Name">
-            </div>
-            <div class="form-group">
-                <label for="calories">Calories</label>
-                <input type="text" class="form-control" id="calories" name="calories" onkeypress="return isNumberKey(event)" placeholder="Calories">
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" class="form-control" id="price" name="price" onkeypress="return isDecimalKey(event)" placeholder="Price">
-            </div>
-            <div class="form-group">
-                <label for="foodType">Food Type</label>
-                <select class="form-control" id="foodType" name="foodType">
-                    <option>Keto</option>
-                    <option>Vegetarian</option>
-                    <option>Gluton free</option>
-                    <option>Family</option>
-                    <option>Paleo</option>
-                    <option>Free Style</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-            </div>
-            <input id="image" name="image" value="" style="visibility: hidden">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+<div class="container">
+    <form style="margin-top: 22px;" action="food" method="POST">
+        <div class="form-group">
+            <label for="name">Food Name</label>
+            <input type="text" class="form-control" id="name" name="foodName" placeholder="Food Name"
+                   value="${food.name}">
+        </div>
+        <div class="form-group">
+            <label for="calories">Calories</label>
+            <input type="text" class="form-control" id="calories" name="calories" value="${food.calories}"
+                   onkeypress="return isNumberKey(event)" placeholder="Calories">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="${food.price}"
+                   onkeypress="return isDecimalKey(event)" placeholder="Price">
+        </div>
+        <div class="form-group">
+            <label for="foodType">Food Type</label>
+            <select class="form-control" id="foodType" name="foodType">
+                <option
+                        <c:if test="${food.type eq 'Keto'}">
+                            <c:out value=" selected "/>
+                        </c:if>>Keto
+                </option>
+                <option
+                        <c:if test="${food.type eq 'Vegetarian'}">
+                            <c:out value=" selected "/>
+                        </c:if>>Vegetarian
+                </option>
+                <option
+                        <c:if test="${food.type eq 'Gluton free'}">
+                            <c:out value=" selected "/>
+                        </c:if>>Gluton free
+                </option>
+                <option
+                        <c:if test="${food.type eq 'Family'}">
+                            <c:out value=" selected "/>
+                        </c:if>>Family
+                </option>
+                <option
+                        <c:if test="${food.type eq 'Paleo'}">
+                            <c:out value=" selected "/>
+                        </c:if>>
+                    Paleo
+                </option>
+                <option
+                        <c:if test="${food.type eq 'Free Style'}">
+                            <c:out value=" selected "/>
+                        </c:if>>Free Style
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" >${food.description}</textarea>
+        </div>
+        <input id="image" name="image" value="${food.image_id}" style="visibility: hidden">
+        <input name="foodID" value="${food.foodId}" style="visibility: hidden">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 </body>
 </html>
 
@@ -72,9 +101,10 @@
             return false;
         return true;
     }
+
     function isDecimalKey(evt) {
         var charCode = (evt.which) ? evt.which : evt.keyCode
-        if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
             return false;
         return true;
     }

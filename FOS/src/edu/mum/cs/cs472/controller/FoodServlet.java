@@ -21,6 +21,9 @@ public class FoodServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String foodIDstr = request.getParameter("foodID");
+        int foodID = (foodIDstr.length() == 0) ? 0 : Integer.parseInt(foodIDstr);
+        System.out.println("Food ID : "+ foodIDstr.length());
         String foodName = request.getParameter("foodName");
         String calories = request.getParameter("calories");
         String foodType = request.getParameter("foodType");
@@ -29,9 +32,12 @@ public class FoodServlet extends HttpServlet {
         String price = request.getParameter("price");
         System.out.println("["+foodName+","+calories+","+foodType+","+description+","+imageId+","+price+"]");
 
-        Food newFood = new Food(foodName,Integer.parseInt(calories),description,foodType,Double.parseDouble(price),Integer.parseInt(imageId),"",0,new Date());
-
-        String regResult = this.foodService.newFood(newFood);
+        Food newFood = new Food(foodID,foodName,Integer.parseInt(calories),description,foodType,Double.parseDouble(price),Integer.parseInt(imageId),"",0,new Date());
+        String regResult;
+        if(foodIDstr.length() == 0)
+            regResult = this.foodService.newFood(newFood);
+        else
+            regResult = this.foodService.updateFood(newFood);
         if(regResult.equals("SUCCESS"))  {
             System.out.println("Success");
 //            request.getRequestDispatcher("admin.jsp").forward(request, response);

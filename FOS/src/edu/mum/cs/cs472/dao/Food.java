@@ -43,7 +43,8 @@ public class Food {
         this.image_id = image_id;
     }
 
-    public Food(String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+    public Food(int foodId, String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+        this.foodId = foodId;
         this.name = name;
         this.calories = calories;
         this.description = description;
