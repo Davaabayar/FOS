@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public String registerUser(User userData){
         System.out.println("UserServiceImp.registeruser" + userData.toString());        
         try {
-        	String queryString = "insert into fos.users(first_name, email, password) values (?,?,?)";
+        	String queryString = "insert into fos.users(first_name, email, password) values (?,?,md5(?))";
             PreparedStatement pstmt = this.getDbConnection().getConnection().prepareStatement(queryString);
             pstmt.setString(1, userData.getFirst_name());
             pstmt.setString(2, userData.getEmail());

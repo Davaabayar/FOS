@@ -23,9 +23,12 @@ public class HomeServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("loggedUser") != null) {
+        	System.out.println("Logged in");
             User user = (User) session.getAttribute("loggedUser");
-
             request.setAttribute("email", user.getEmail());
+            request.setAttribute("firstName", user.getFirst_name());
+        }else {
+        	System.out.println("Not logged in");
         }
         rd.forward(request, response);
     }
