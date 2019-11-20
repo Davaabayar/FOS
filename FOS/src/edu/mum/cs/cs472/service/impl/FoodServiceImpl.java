@@ -156,4 +156,37 @@ public class FoodServiceImpl implements FoodService {
     public DBConnection getDbConnection() {
         return dbConnection != null ? this.dbConnection : (this.dbConnection = new DBConnection());
     }
+
+	@Override
+	public Food getFoodByFoodId(int foodId) {
+		String queryString = "select a.food_id, a.name, a.type, a.description, a.created, a.price, a.calories, a.image_id, a.order_count, b.path from foods a LEFT JOIN images b on a.image_id = b.image_id where a.food_id = ?";
+        Food food = null;
+        
+        try {
+            PreparedStatement preparedStatement = this.getDbConnection().getConnection().prepareStatement(queryString);
+            preparedStatement.setInt(1, foodId);
+            ResultSet resultSet = preparedStatement.executeQuery();            
+            while (resultSet.next()) {
+                food = new Food(
+                		Integer.parseInt(resultSet.getString("food_id")),
+                        resultSet.getString("name"),
+                        resultSet.getInt("calories"),
+                        resultSet.getString("description"),
+                        resultSet.getString("type"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("image_id"),
+                        resultSet.getString("path"),
+                        resultSet.getInt("order_count"),
+                        new Date(resultSet.getDate("created").getTime())
+                );
+            }            
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.getDbConnection().disconnect();
+        }     
+        return food;
+	}
 }

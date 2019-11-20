@@ -56,7 +56,7 @@ public class Food {
         this.created = created;
     }
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -87,4 +87,12 @@ public class Food {
     public void setFoodId(int foodId) {
         this.foodId = foodId;
     }
+
+	@Override
+	public String toString() {
+		return "Food [foodId=" + foodId + ", name=" + name + ", calories=" + calories + ", description=" + description
+				+ ", type=" + type + ", price=" + price + ", image_id=" + image_id + ", image_path=" + image_path
+				+ ", order_count=" + order_count + ", created=" + created + "]";
+	}
+    
 }
