@@ -34,11 +34,10 @@ public class MainFilter implements Filter {
             HttpSession session = rq.getSession();
             if (session.getAttribute("loggedUser") != null) {
                 User user = (User) session.getAttribute("loggedUser");
-
                 request.setAttribute("email", user.getEmail());
                 chain.doFilter(request, response);
             } else {
-                if (path.contains("/admin")) {
+                if (path.contains("/admin") || path.contains("/checkout")) {
                     res.sendRedirect(rq.getContextPath() + "/login");
                 } else {
                     res.sendRedirect(rq.getContextPath() + "/");

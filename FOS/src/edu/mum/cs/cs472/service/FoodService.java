@@ -7,9 +7,11 @@ import java.util.List;
 public interface FoodService {
     public List<Food> getAllFood();
 
-    public List<Food> getFoodById(int userId);
+    public List<Food> getFoodByUserId(int userId);
 
     public List<Food> getFoodByType(String type);
 
     public String newFood(Food newFood);
+    
+    public Food getFoodByFoodId(int foodId);
 }
