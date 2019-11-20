@@ -5,26 +5,29 @@
   Time: 3:22 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/manduul.css">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Welcome to Modern Business</h1>
+        <h1 class="my-4">Welcome to Admin Panel</h1>
 
         <!-- Marketing Icons Section -->
         <div class="row">
@@ -101,37 +104,40 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <h4 class="card-header">User List</h4>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Dapibus ac facilisis in
-                                <span class="badge badge-primary badge-pill">2</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Morbi leo risus
-                                <span class="badge badge-primary badge-pill">1</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                    </div>
-                </div>
+            <div class="user-table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${userList}" var="user" varStatus="loop">
+                        <tr>
+                            <th scope="row"><c:out value="${loop.index+1}" /></th>
+                            <td><c:out value="${user.first_name}" /></td>
+                            <td><c:out value="${user.last_name}" /></td>
+                            <td><c:out value="${user.email}" /></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-lg-4 mb-4">
+            <div class="col-lg-12 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">Card Title</h4>
+                    <a href="food.jsp">
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Add New</button>
+                    </a>
                     <div class="card-body">
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                        <button class="btn m-btn"><i class="fa fa-edit"></i></button>
+                        <button class="btn m-btn"><i class="fa fa-close"></i></button>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -139,3 +145,4 @@
     </div>
 </body>
 </html>
+
