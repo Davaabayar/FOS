@@ -1,5 +1,7 @@
 package edu.mum.cs.cs472.dao;
 
+import java.util.Date;
+
 public class Food {
     private int foodId;
 
@@ -9,8 +11,9 @@ public class Food {
     private String type;
     private double price;
     private int image_id;
-
-
+    private String image_path;
+    private int order_count;
+    private Date created;
 
     public Food() {
 
@@ -40,13 +43,16 @@ public class Food {
         this.image_id = image_id;
     }
 
-    public Food(String name, int calories, String description, String type, double price, int image_id) {
+    public Food(String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
         this.name = name;
         this.calories = calories;
         this.description = description;
         this.type = type;
         this.price = price;
         this.image_id = image_id;
+        this.image_path = path;
+        this.order_count = order_count;
+        this.created = created;
     }
 
     public String getName() {
