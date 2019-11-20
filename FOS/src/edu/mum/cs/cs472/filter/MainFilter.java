@@ -28,7 +28,7 @@ public class MainFilter implements Filter {
 
         String path = rq.getRequestURI();
 
-        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout")) {
+        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload")) {
             chain.doFilter(request, response);
         } else {
             HttpSession session = rq.getSession();
@@ -37,7 +37,11 @@ public class MainFilter implements Filter {
 
                 request.setAttribute("email", user.getEmail());
             } else {
-                res.sendRedirect(rq.getContextPath() + "/");
+                if (path.contains("/admin")) {
+                    res.sendRedirect(rq.getContextPath() + "/login");
+                } else {
+                    res.sendRedirect(rq.getContextPath() + "/");
+                }
             }
         }
 

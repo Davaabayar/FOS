@@ -1,6 +1,8 @@
 package edu.mum.cs.cs472.service.impl;
 
 import edu.mum.cs.cs472.dao.Image;
+import edu.mum.cs.cs472.dao.Role;
+import edu.mum.cs.cs472.dao.User;
 import edu.mum.cs.cs472.service.UploadService;
 import edu.mum.cs.cs472.util.DBConnection;
 
@@ -37,6 +39,31 @@ public class UploadServiceImpl implements UploadService {
             this.getDbConnection().disconnect();
         }
         return null;
+    }
+
+    public Image getImage(int imageId) {
+        String queryString = "select image_id, path, created from images where image_id=?";
+        Image image = null;
+        try {
+            PreparedStatement preparedStatement = this.getDbConnection().getConnection().prepareStatement(queryString);
+            preparedStatement.setInt(1, imageId);
+            preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                image = new Image(
+                        resultSet.getInt("image_id"),
+                        resultSet.getString("path"),
+                        resultSet.getDate("created")
+                );
+            }
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.getDbConnection().disconnect();
+        }
+        return image;
     }
 
     public DBConnection getDbConnection() {
