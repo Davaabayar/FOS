@@ -12,8 +12,8 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login", description = "LoginServlet")
 public class LoginServlet extends HttpServlet {
-
-    private UserService userService;
+	private static final long serialVersionUID = 1L;
+	private UserService userService;
 
     public LoginServlet() {
         userService = new UserServiceImpl();
