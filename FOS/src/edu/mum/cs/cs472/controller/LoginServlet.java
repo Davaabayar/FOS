@@ -12,8 +12,8 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login", description = "LoginServlet")
 public class LoginServlet extends HttpServlet {
-
-    private UserService userService;
+	private static final long serialVersionUID = 1L;
+	private UserService userService;
 
     public LoginServlet() {
         userService = new UserServiceImpl();
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = userService.login(email, password);
 
-        if (user.getHastUserId()) {
+        if (user != null && user.getHastUserId()) {
             HttpSession session = request.getSession();
             session.setAttribute("loggedUser", user);
 
@@ -34,13 +34,13 @@ public class LoginServlet extends HttpServlet {
             response.addCookie(loginCookie);
             response.sendRedirect(request.getContextPath() + "/home");
         } else {
-            request.setAttribute("errorMsg", "E-mail or password is incorrect");
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/login?errorMsg=E-mail or password is incorrect");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+        request.setAttribute("errorMsg", request.getParameter("errorMsg"));
         rd.forward(request, response);
     }
 }

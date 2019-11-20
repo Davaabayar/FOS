@@ -19,19 +19,12 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("JSESSIONID")) {
-                    System.out.println("JSESSIONID=" + cookie.getValue());
-                    break;
-                }
-            }
-        }
         //invalidate the session if exists
         HttpSession session = request.getSession();
-        User loggedUser = (User) session.getAttribute("loggedUser");
-        System.out.println(loggedUser.toString());
+        if (session.getAttribute("loggedUser") != null) {
+            User loggedUser = (User) session.getAttribute("loggedUser");
+            System.out.println(loggedUser.toString());
+        }
         session.invalidate();
         response.sendRedirect(request.getContextPath() + "/login");
     }

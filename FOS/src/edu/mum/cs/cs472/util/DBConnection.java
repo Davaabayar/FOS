@@ -70,4 +70,3 @@ public class DBConnection {
         return this.connect();
     }
 }
-
