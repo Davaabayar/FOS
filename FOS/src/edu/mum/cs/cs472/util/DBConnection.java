@@ -18,11 +18,6 @@ public class DBConnection {
             properties = new Properties();
             try (InputStream input = getClass().getResourceAsStream("../../../../../../config/common.properties")) {
                 properties.load(input);
-                // get the property value and print it out
-                System.out.println(properties.getProperty("db.url"));
-                System.out.println(properties.getProperty("db.user"));
-                System.out.println(properties.getProperty("db.password"));
-
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -75,4 +70,3 @@ public class DBConnection {
         return this.connect();
     }
 }
-

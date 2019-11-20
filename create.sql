@@ -21,7 +21,7 @@ USE `fos` ;
 -- Table `fos`.`images`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`images` (
-  `image_id` INT NOT NULL,
+  `image_id` INT NOT NULL AUTO_INCREMENT,
   `path` VARCHAR(100) NOT NULL,
   `created` DATETIME NOT NULL,
   PRIMARY KEY (`image_id`))
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `fos`.`addresses`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`addresses` (
-  `address_id` INT NOT NULL,
+  `address_id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(100) NOT NULL,
   `city` VARCHAR(45) NOT NULL,
   `state` VARCHAR(45) NOT NULL,
@@ -47,7 +47,7 @@ ENGINE = InnoDB;
 -- Table `fos`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`users` (
-  `user_id` INT NOT NULL,
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(100) NOT NULL,
   `last_name` VARCHAR(100) NOT NULL,
   `password` VARCHAR(250) NOT NULL,
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 -- Table `fos`.`orders`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`orders` (
-  `order_id` INT NOT NULL,
+  `order_id` INT NOT NULL AUTO_INCREMENT,
   `totalAmount` DOUBLE NOT NULL,
   `created` DATETIME NOT NULL,
   `status` ENUM('ordered', 'delivered', 'cancelled', 'shipping') NOT NULL,
@@ -96,7 +96,7 @@ ENGINE = InnoDB;
 -- Table `fos`.`foods`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`foods` (
-  `food_id` INT NOT NULL,
+  `food_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `description` VARCHAR(250) NOT NULL,
@@ -119,7 +119,7 @@ ENGINE = InnoDB;
 -- Table `fos`.`orders_has_foods`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fos`.`orders_has_foods` (
-  `order_id` INT NOT NULL,
+  `order_id` INT NOT NULL AUTO_INCREMENT,
   `food_id` INT NOT NULL,
   PRIMARY KEY (`order_id`, `food_id`),
   INDEX `fk_orders_has_foods_foods1_idx` (`food_id` ASC) VISIBLE,
