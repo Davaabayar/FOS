@@ -19,14 +19,15 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-
         HttpSession session = request.getSession();
         if (session.getAttribute("loggedUser") != null) {
+            RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
             User user = (User) session.getAttribute("loggedUser");
 
             request.setAttribute("email", user.getEmail());
+            rd.forward(request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login");
         }
-        rd.forward(request, response);
     }
 }
