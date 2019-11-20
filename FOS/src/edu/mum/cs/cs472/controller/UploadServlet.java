@@ -43,13 +43,13 @@ public class UploadServlet extends HttpServlet {
                         if (!directory.exists()) {
                             directory.mkdir();
                         }
-                        String newName = UPLOAD_DIRECTORY + File.separator + File.separator + FilenameUtils.getBaseName(name) + +(System.currentTimeMillis() / 1000L) + "." + FilenameUtils.getExtension(name);
+                        String newName = UPLOAD_DIRECTORY + File.separator + FilenameUtils.getBaseName(name) + +(System.currentTimeMillis() / 1000L) + "." + FilenameUtils.getExtension(name);
                         item.write(new File(newName));
 
                         Image image = uploadService.saveImage(newName);
 
                         response.setStatus(HttpServletResponse.SC_OK);
-                        response.getWriter().write(image.getImageId());
+                        response.getWriter().write(String.valueOf(image.getImageId()));
                         response.getWriter().flush();
                         response.getWriter().close();
                     }
