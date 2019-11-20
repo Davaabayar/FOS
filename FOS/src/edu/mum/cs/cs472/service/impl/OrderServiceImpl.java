@@ -13,7 +13,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Order> getAllOrder() {
-		// TODO Auto-generated method stub
+		String queryString = "select user_id, first_name, last_name, email, role, created, image_id, address_id, status, password from users";
+
 		return null;
 	}
 
