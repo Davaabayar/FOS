@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "FoodEditServlet", urlPatterns = "/deleteFood", description = "FoodEditServlet")
+@WebServlet(name = "FoodDeleteServlet", urlPatterns = "/deleteFood", description = "FoodEditServlet")
 public class FoodDeleteServlet extends HttpServlet {
     private FoodService foodService;
 
