@@ -43,7 +43,8 @@ public class Food {
         this.image_id = image_id;
     }
 
-    public Food(String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+    public Food(int foodId, String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+        this.foodId = foodId;
         this.name = name;
         this.calories = calories;
         this.description = description;
@@ -72,6 +73,7 @@ public class Food {
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -102,4 +104,12 @@ public class Food {
     public void setFoodId(int foodId) {
         this.foodId = foodId;
     }
+
+	@Override
+	public String toString() {
+		return "Food [foodId=" + foodId + ", name=" + name + ", calories=" + calories + ", description=" + description
+				+ ", type=" + type + ", price=" + price + ", image_id=" + image_id + ", image_path=" + image_path
+				+ ", order_count=" + order_count + ", created=" + created + "]";
+	}
+    
 }
