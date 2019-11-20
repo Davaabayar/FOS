@@ -22,7 +22,7 @@
                 success: function (data) {
                     console.log(data);
                     $('#image').val(data);
-                    console.log($('#image'));
+                    $('#foodImage').attr("src","${pageContext.request.contextPath}/upload?imageId="+data);
                 },
                 error: function(error) {
                     console.log(error);
