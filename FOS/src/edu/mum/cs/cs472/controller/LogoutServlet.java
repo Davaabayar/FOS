@@ -1,10 +1,7 @@
 package edu.mum.cs.cs472.controller;
 
 import edu.mum.cs.cs472.dao.User;
-import edu.mum.cs.cs472.service.impl.UserServiceImpl;
-import edu.mum.cs.cs472.service.UserService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -12,7 +9,6 @@ import java.io.IOException;
 
 @WebServlet(name = "LogoutServlet", urlPatterns = "/logout", description = "LogoutServlet")
 public class LogoutServlet extends HttpServlet {
-
 
     public LogoutServlet() {
     }
