@@ -43,7 +43,8 @@ public class Food {
         this.image_id = image_id;
     }
 
-    public Food(String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+    public Food(int foodId, String name, int calories, String description, String type, double price, int image_id, String path, int order_count, Date created) {
+        this.foodId = foodId;
         this.name = name;
         this.calories = calories;
         this.description = description;
@@ -54,23 +55,6 @@ public class Food {
         this.order_count = order_count;
         this.created = created;
     }
-    
-    
-
-    public Food(int foodId, String name, int calories, String description, String type, double price, int image_id,
-			String image_path, int order_count, Date created) {
-		super();
-		this.foodId = foodId;
-		this.name = name;
-		this.calories = calories;
-		this.description = description;
-		this.type = type;
-		this.price = price;
-		this.image_id = image_id;
-		this.image_path = image_path;
-		this.order_count = order_count;
-		this.created = created;
-	}
 
 	public String getName() {
         return name;
