@@ -1,22 +1,52 @@
 package edu.mum.cs.cs472.dao;
 
 public class Food {
+    private int foodId;
+
     private String name;
-    private String calories;
+    private int calories;
     private String description;
     private String type;
-    private int foodId;
+    private double price;
+    private int image_id;
+
 
 
     public Food() {
 
     }
 
-    public Food(String name,String calories, String description, String type) {
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getImage_id() {
+        return image_id;
+    }
+
+    public void setImage_id(int image_id) {
+        this.image_id = image_id;
+    }
+
+    public Food(String name, int calories, String description, String type, double price, int image_id) {
         this.name = name;
         this.calories = calories;
         this.description = description;
         this.type = type;
+        this.price = price;
+        this.image_id = image_id;
     }
 
     public String getName() {

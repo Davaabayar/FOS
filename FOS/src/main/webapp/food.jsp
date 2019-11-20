@@ -37,7 +37,11 @@
             </div>
             <div class="form-group">
                 <label for="calories">Calories</label>
-                <input type="text" class="form-control" id="calories" name="calories" placeholder="Calories">
+                <input type="text" class="form-control" id="calories" name="calories" onkeypress="return isNumberKey(event)" placeholder="Calories">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" name="price" onkeypress="return isDecimalKey(event)" placeholder="Price">
             </div>
             <div class="form-group">
                 <label for="foodType">Food Type</label>
@@ -54,9 +58,24 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
-            <input id="image" name="image" value="1">
+            <input id="image" name="image" value="" style="visibility: hidden">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>
 </html>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    function isDecimalKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+</script>
