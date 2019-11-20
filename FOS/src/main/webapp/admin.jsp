@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Welcome to Admin Panel</h1>
+        <h1 class="my-4">Welcome to Admin Panel hmm</h1>
 
         <!-- Marketing Icons Section -->
         <div class="row">
@@ -128,21 +128,22 @@
             </div>
             <div class="col-lg-12 mb-4">
                 <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
+                    <h4 class="card-header">Food List</h4>
                     <a href="food.jsp">
                         <button type="button" class="btn btn-primary" style="width: 100%;">Add New</button>
                     </a>
                     <div class="card-body">
                         <ul class="list-group">
+                            hi
                             <c:forEach items="${foodList}" var="food" varStatus="loop">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li food-id="${food.food_id}" class="list-group-item d-flex justify-content-between align-items-center">
                                     <div style="max-width: 80%;">
                                         <p>Name : <c:out value="${food.name}" /></p>
                                         <p>Description : <c:out value="${food.description}" /></p>
                                     </div>
                                     <div>
-                                        <button class="btn m-btn"><i class="fa fa-edit"></i></button>
-                                        <button class="btn m-btn"><i class="fa fa-close"></i></button>
+                                        <button class="btn m-btn food-edit"><i class="fa fa-edit"></i></button>
+                                        <button class="btn m-btn food-delete"><i class="fa fa-close"></i></button>
                                     </div>
                                 </li>
                             </c:forEach>
@@ -156,4 +157,12 @@
     </div>
 </body>
 </html>
+<script>
+    // $(document).ready(function () {
+    //     $('.food-edit').on('click', function () {
+    //         console.log($(this).parent().parent().attr('food-id'));
+    //     })
+    // });
+</script>
+
 
