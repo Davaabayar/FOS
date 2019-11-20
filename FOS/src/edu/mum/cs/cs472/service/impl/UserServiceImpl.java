@@ -20,14 +20,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUser() {
         System.out.println("Get All Users");
-        String queryString = "select first_name from users";
+        String queryString = "select user_id, first_name, last_name, email, role, created, image_id, address_id, status, password from users";
 
         List<User> list = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = this.getDbConnection().getConnection().prepareStatement(queryString);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                list.add(new User());
+                list.add(new User(
+                    resultSet.getInt("user_id"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("email"),
+                    Role.valueOf(resultSet.getString("role")),
+                    new Date(resultSet.getDate("created").getTime()),
+                    resultSet.getInt("status"),
+                    resultSet.getString("password")
+                ));
             }
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
