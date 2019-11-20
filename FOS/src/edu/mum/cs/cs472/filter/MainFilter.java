@@ -36,6 +36,7 @@ public class MainFilter implements Filter {
                 User user = (User) session.getAttribute("loggedUser");
 
                 request.setAttribute("email", user.getEmail());
+                chain.doFilter(request, response);
             } else {
                 if (path.contains("/admin")) {
                     res.sendRedirect(rq.getContextPath() + "/login");

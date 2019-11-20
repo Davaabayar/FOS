@@ -46,10 +46,10 @@ public class UploadServlet extends HttpServlet {
                         if (!directory.exists()) {
                             directory.mkdir();
                         }
-                        String newName = UPLOAD_DIRECTORY + File.separator + FilenameUtils.getBaseName(name) + +(System.currentTimeMillis() / 1000L) + "." + FilenameUtils.getExtension(name);
+                        String newName = UPLOAD_DIRECTORY + File.separator + FilenameUtils.getBaseName(name) + (System.currentTimeMillis() / 1000L) + "." + FilenameUtils.getExtension(name);
                         item.write(new File(newName));
 
-                        Image image = uploadService.saveImage(newName);
+                        Image image = uploadService.saveImage(FilenameUtils.getBaseName(name) + (System.currentTimeMillis() / 1000L) + "." + FilenameUtils.getExtension(name));
 
                         response.setStatus(HttpServletResponse.SC_OK);
                         response.getWriter().write(String.valueOf(image.getImageId()));
@@ -79,7 +79,7 @@ public class UploadServlet extends HttpServlet {
         response.setContentType("image/jpeg");
         if (request.getParameter("imageId") != null) {
             Image image = uploadService.getImage(Integer.parseInt(request.getParameter("imageId")));
-            File f = new File(image.getPath());
+            File f = new File(UPLOAD_DIRECTORY + File.separator + image.getPath());
             BufferedImage bi = ImageIO.read(f);
             OutputStream out = response.getOutputStream();
             ImageIO.write(bi, "jpg", out);
