@@ -13,19 +13,16 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Order> getAllOrder() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Order> getOrderByUserId(int userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Order getOrderById(int orderId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
