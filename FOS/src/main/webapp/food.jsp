@@ -30,7 +30,7 @@
     <%@ include file="upload.jsp" %>
 
     <div class="container">
-        <form style="margin-top: 22px;" action="">
+        <form style="margin-top: 22px;" action="food" method="POST">
             <div class="form-group">
                 <label for="name">Food Name</label>
                 <input type="text" class="form-control" id="name" name="foodName" placeholder="Food Name">
@@ -54,6 +54,7 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
+            <input id="image" name="image" value="1">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

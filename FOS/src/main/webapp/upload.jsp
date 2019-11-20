@@ -21,6 +21,8 @@
                 processData: false,
                 success: function (data) {
                     console.log(data);
+                    $('#image').val(data);
+                    console.log($('#image'));
                 },
                 error: function(error) {
                     console.log(error);

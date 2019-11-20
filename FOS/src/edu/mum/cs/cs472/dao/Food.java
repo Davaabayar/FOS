@@ -2,6 +2,7 @@ package edu.mum.cs.cs472.dao;
 
 public class Food {
     private String name;
+    private String calories;
     private String description;
     private String type;
     private int foodId;
@@ -11,10 +12,10 @@ public class Food {
 
     }
 
-    public Food(int foodId, String name, String description, String type) {
-        this.description = description;
-        this.foodId = foodId;
+    public Food(String name,String calories, String description, String type) {
         this.name = name;
+        this.calories = calories;
+        this.description = description;
         this.type = type;
     }
 
