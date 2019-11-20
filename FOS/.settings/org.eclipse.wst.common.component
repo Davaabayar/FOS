@@ -8,9 +8,8 @@
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                 
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/edu"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
                 
         <property name="context-root" value="FOS"/>
                 
