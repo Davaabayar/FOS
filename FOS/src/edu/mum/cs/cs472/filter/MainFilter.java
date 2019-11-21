@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "MainFilter", urlPatterns = "/*")
+@WebFilter(filterName = "MainFilter", urlPatterns = "/123456")
 public class MainFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -28,7 +28,7 @@ public class MainFilter implements Filter {
 
         String path = rq.getRequestURI();
 
-        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload")) {
+        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload")|| path.contains("/")|| path.contains("/index")) {
             chain.doFilter(request, response);
         } else {
             HttpSession session = rq.getSession();

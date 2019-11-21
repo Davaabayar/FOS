@@ -37,8 +37,49 @@
 
 </head>
 
-<body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i
-        class="icofont icofont-bubble-up"></i></a>
+<body class="header-0 wide-layout">
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#mainFilter a').click(function () {
+            var type = $(this).text();
+            $.ajax({
+                url: "${pageContext.request.contextPath}/IndexServlet",
+                type: "POST",
+                data: {filter : type},
+                success: function (data) {
+                    console.log(data);
+
+                    var html = '';
+
+                    $.each(data, function (index,value) {
+                        html += '                      <div class="col-md-6 col-sm-6 col-xs-12">\n' +
+                            '                                            <div class="box">\n' +
+                            '                                                <div class="image">\n' +
+                            '                                                    <img src="' + value.image_path +'" alt="image" title="image" class="img-fluid">\n' +
+                            '                                                </div>\n' +
+                            '                                                <div class="caption">\n' +
+                            '                                                    <h4>' + value.name +'</h4>\n' +
+                            '                                                    <p class="des">Type:' + value.type +'</p>\n' +
+                            '                                                    <p class="des">' + value.calories +'kcal</p>\n' +
+                            '                                                    <p class="des">Popularity: ' + value.order_count +' times ordered!</p>\n' +
+                            '                                                    <span>' + value.description +'</span>\n' +
+                            '                                                    <div class="price">' + value.price +'</div>\n' +
+                            '                                                </div>\n' +
+                            '                                            </div>\n' +
+                            '                                        </div>\n';
+                    });
+                    
+                    $('#foodContent').html(html);
+                    
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+<a href="#" class="bottom-top" style="display: block;"><i class="icofont icofont-bubble-up"></i></a>
 <div class="wrapper">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
@@ -89,9 +130,9 @@
                         <nav class="navbar navbar-expand-md">
                             <div class="navbar-header">
                                 <span class="menutext d-block d-md-none">Menu</span>
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse"
-                                        class="btn btn-navbar navbar-toggler" type="button"><i
-                                        class="icofont icofont-navigation-menu"></i></button>
+                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button">
+                                    <i class="icofont icofont-navigation-menu"></i>
+                                </button>
                             </div>
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
@@ -162,16 +203,16 @@
                     <!-- Title Content End -->
                     <div class="col-sm-12 col-xs-12">
                         <!--  Menu Tabs Start  -->
-                        <ul class="nav nav-tabs list-inline">
+                        <ul class="nav nav-tabs list-inline" id="mainFilter">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#all" data-toggle="tab" aria-expanded="true">all</a>
+                                <a class="nav-link active" href="#" data-toggle="tab" aria-expanded="true">all</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#breakfast" data-toggle="tab"
                                    aria-expanded="false">Paleo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#lunch" data-toggle="tab" aria-expanded="false">Keto</a>
+                                <a class="nav-link" href='#Keto' data-toggle="tab" aria-expanded="false">Keto</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#dinner" data-toggle="tab" aria-expanded="false">Vegan</a>
@@ -185,36 +226,13 @@
                         </ul>
                         <!--  Menu Tabs Start  -->
 
-                        <!--  Menu Tabs Content Start  -->
                         <div class="tab-content">
-                            <!--  Menu Tab Start  -->
                             <div class="tab-pane show active" id="all">
-                                <div class="row">
-                                    <c:forEach items="${foodList}" var="food" varStatus="loop">
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="box">
-                                                <div class="image">
-                                                    <img src="img/01.jpg" alt="image" title="image" class="img-fluid">
-                                                </div>
-                                                <div class="caption">
-                                                    <h4><c:out value="${food.name}"/></h4>
-                                                    <p class="des"><c:out value="Type: ${food.type}"/></p>
-                                                    <p class="des"><c:out value="${food.calories} kcal"/></p>
-                                                    <p class="des"><c:out value="Popularity: ${food.order_count} times ordered! "/></p>
-                                                    <span><c:out value="${food.description}"/></span>
-                                                    <div class="price"><c:out value="$${food.price}"/></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
-
+                                <div class="row" id="foodContent">
+                                    
                                 </div>
                             </div>
-                            <!--  Menu Tab End  -->
-
-
                         </div>
-                        <!--  Menu Tabs Content End  -->
 
                     </div>
                 </div>
