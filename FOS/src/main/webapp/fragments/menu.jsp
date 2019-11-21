@@ -24,9 +24,9 @@
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
                                     <li class="nav-item">
-                                        <a href="#" data-toggle="dropdown">HOME</a>
+                                        <a href="/FOS" data-toggle="dropdown">HOME</a>
                                     </li>
-                                    <li class="nav-item"><a href="about.html">about us</a></li>
+                                    <li class="nav-item"><a href="about">about us</a></li>
                                     <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"
                                                                      data-toggle="dropdown">Our Menu</a>
                                         <div class="dropdown-menu">
