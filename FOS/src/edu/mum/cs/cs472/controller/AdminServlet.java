@@ -2,8 +2,10 @@ package edu.mum.cs.cs472.controller;
 
 import edu.mum.cs.cs472.dao.User;
 import edu.mum.cs.cs472.service.FoodService;
+import edu.mum.cs.cs472.service.OrderService;
 import edu.mum.cs.cs472.service.UserService;
 import edu.mum.cs.cs472.service.impl.FoodServiceImpl;
+import edu.mum.cs.cs472.service.impl.OrderServiceImpl;
 import edu.mum.cs.cs472.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -20,10 +22,13 @@ public class AdminServlet extends HttpServlet {
 
     private UserService userService;
     private FoodService foodService;
+    private OrderService orderService;
+
 
     public AdminServlet() {
         foodService = new FoodServiceImpl();
         userService = new UserServiceImpl();
+        orderService = new OrderServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,6 +38,7 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("userList", userService.getAllUser());
         request.setAttribute("foodList", foodService.getAllFood());
+        request.setAttribute("orderList", orderService.getAllOrder());
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 }

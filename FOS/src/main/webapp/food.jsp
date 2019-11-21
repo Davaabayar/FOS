@@ -67,11 +67,6 @@
                         </c:if>>Gluton free
                 </option>
                 <option
-                        <c:if test="${food.type eq 'Family'}">
-                            <c:out value=" selected "/>
-                        </c:if>>Family
-                </option>
-                <option
                         <c:if test="${food.type eq 'Paleo'}">
                             <c:out value=" selected "/>
                         </c:if>>

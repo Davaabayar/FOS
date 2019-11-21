@@ -13,4 +13,6 @@ public interface OrderService {
     public Order getOrderById(int orderId);
     
     public String addOrder(Order newOrder);
+
+    public String changeStatus(int orderId);
 }

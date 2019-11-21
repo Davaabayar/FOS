@@ -132,7 +132,7 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public String deleteFood(int foodId) {
-        String queryString = "delete from fos.foods where food_id=?";
+        String queryString = "delete a,b,c from foods a inner join orders_has_foods b on a.food_id=b.food_id inner join orders c on b.order_id=c.order_id where a.food_id=?";
         try {
             PreparedStatement preparedStatement = this.getDbConnection().getConnection().prepareStatement(queryString, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, ""+foodId);
