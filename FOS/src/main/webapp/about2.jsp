@@ -98,7 +98,7 @@
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}">HOME</a>
                                     </li>
-                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/about2.jsp">about us</a></li>                                   
+                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/about2.jsp">about us</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -137,14 +137,28 @@
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12 commontop text-left">
                 <h4>about our restaurant food &amp; drinkes</h4>
 
-                <p>The vegetarian diet involves abstaining from eating meat, fish and poultry.
-                    People often adopt a vegetarian diet for religious or personal reasons, as well as ethical issues, such as animal rights.</p>
-                <p class="des">Others decide to become vegetarian for environmental reasons, as livestock production increases greenhouse
-                    gas emissions, contributes to climate change and requires large amounts of water, energy and natural resources,
-                    Vegetarian diets are associated with a number of health benefits. Switching to a vegetarian diet can be an effective strategy
-                    if you?re looking to lose weight. Vegetarian diets reduce several heart disease risk factors to help keep your heart healthy and strong.
-                    One study in 76 people tied vegetarian diets to lower levels of triglycerides, total cholesterol and ?bad? LDL cholesterol ? all of which
-                    are risk factors for heart disease when elevated.</p>
+                <p>Vegetarian dishes are sometimes associated with complicated ingredients and techniques, but our
+                    online food ordering system is
+                    here to introduce vegetarian meals. Totally veggie-friendly, and flavor packed orders come in at the
+                    door. </p>
+                <p class="des">The following vegatarian meals that will make anyone want to go meatless:</p>
+                <ul>
+                    <li><strong>Paleo foods</strong> include seeds, nuts, fruits and veggies, along with healthy fats
+                        and oils. Avoid processed foods, grains and sugar.
+                    </li>
+                    <li><strong>The ketogenic diet</strong> is low in carbs and moderate in protein.
+                    </li>
+                    <li><strong>Vegans</strong> can reach ketosis by relying on high-fat, plant-based products
+                        like coconut oil, avocados, seeds and nuts.
+                    </li>
+                    <li><strong>Freestyle</strong> menu option that customer can choose various types of healthy foods
+                        from our
+                        menu. A gluten-free diet is that excludes the protein gluten.
+                    </li>
+                    <li><strong>Gluten</strong> is found in grains such as wheat, barley and a cross between
+                        wheat and rye called triticale.
+                    </li>
+                </ul>
             </div>
             <!-- Title Content End -->
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -103,7 +103,7 @@
                         html += '                      <div class="col-md-6 col-sm-6 col-xs-12">\n' +
                             '                                            <div class="box">\n' +
                             '                                                <div class="image">\n' +
-                            '                                                    <img src="${pageContext.request.contextPath}/upload?imageId=' + value.image_id +'" alt="image" title="image" class="img-fluid">\n' +
+                            '                                                    <img src="https://via.placeholder.com/300.png" data-src="${pageContext.request.contextPath}/upload?imageId=' + value.image_id +'" alt="image" title="image" class="img-fluid">\n' +
                             '                                                </div>\n' +
                             '                                                <div class="caption">\n' +
                             '                                                    <h4>' + value.name +'</h4>\n' +
@@ -118,6 +118,10 @@
                     });
 
                     $('#foodContent').html(html);
+
+                    $.each($('#foodContent .box img'), function() {
+                        $(this).attr('src', $(this).attr('data-src'));
+                    });
 
                     $('.loader').hide();
                 },
@@ -254,9 +258,9 @@
                             <i class="icofont icofont-ui-press hr-icon"></i>
                             <span class="hr-simple right"></span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in
-                            suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget
-                            lobortis nulla.</p>
+                        <p>Our diverse healthy food menu includes Paleo,  Keto,  Vegan,  Gluten-Free series. Our menu always fresh,
+                            always delicious and enjoy new healthy food at home with ease when you order online. People may adopt a
+                            vegetarian diet for various reasons and several variations of vegetarianism exist.</p>
                     </div>
                     <!-- Title Content End -->
                     <div class="col-sm-12 col-xs-12">

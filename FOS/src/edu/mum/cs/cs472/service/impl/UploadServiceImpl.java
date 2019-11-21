@@ -60,9 +60,10 @@ public class UploadServiceImpl implements UploadService {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            this.getDbConnection().disconnect();
         }
+//        finally {
+//            this.getDbConnection().disconnect();
+//        }
         return image;
     }
 
