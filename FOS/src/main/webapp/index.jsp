@@ -78,7 +78,7 @@
                         html += '                      <div class="col-md-6 col-sm-6 col-xs-12">\n' +
                             '                                            <div class="box">\n' +
                             '                                                <div class="image">\n' +
-                            '                                                    <img src="' + value.image_path +'" alt="image" title="image" class="img-fluid">\n' +
+                            '                                                    <img src="${pageContext.request.contextPath}/upload?imageId=' + value.image_id +'" alt="image" title="image" class="img-fluid">\n' +
                             '                                                </div>\n' +
                             '                                                <div class="caption">\n' +
                             '                                                    <h4>' + value.name +'</h4>\n' +
