@@ -56,7 +56,24 @@ public class Food {
         this.created = created;
     }
 
-	public String getName() {
+    public int getOrder_count() {
+        return order_count;
+    }
+
+    public void setOrder_count(int order_count) {
+        this.order_count = order_count;
+    }
+
+    public String getImage_path() {
+        return image_path;
+    }
+
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
+    }
+
+    public String getName() {
+
         return name;
     }
 

@@ -12,30 +12,37 @@
     <!-- Favicon -->
     <link type="image/x-icon" rel="shortcut icon" href="favicon.png">
     <title>STEAM - Restaurant and Drinks Responsive HTML5 Template</title>
-    <meta name="description" content="STEAM - Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
+    <meta name="description"
+          content="STEAM - Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
 
     <!-- Bootstrap stylesheet -->
-    <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"
+          rel="stylesheet">
     <!-- icofont -->
-    <link href="https://www.spheretheme.com/html/steam/assets/libs/icofont/css/icofont.css" rel="stylesheet" type="text/css">
+    <link href="./css/icofont.css" rel="stylesheet" type="text/css">
     <!-- crousel css -->
-    <link href="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/assets/owl.carousel.min.css"
+          rel="stylesheet" type="text/css">
     <!-- Animated Headlines css -->
-    <link href="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.css" rel="stylesheet" type="text/css">
+    <link href="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.css"
+          rel="stylesheet" type="text/css">
     <!-- mb.YTPlayer css -->
-    <link href="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/css/jquery.mb.YTPlayer.min.css" rel="stylesheet" type="text/css">
+    <link href="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/css/jquery.mb.YTPlayer.min.css"
+          rel="stylesheet" type="text/css">
     <!-- Switch Style css -->
-    <link href="https://www.spheretheme.com/html/steam/assets/switch-style/switch-style.css" rel="stylesheet" type="text/css">
+    <link href="https://www.spheretheme.com/html/steam/assets/switch-style/switch-style.css" rel="stylesheet"
+          type="text/css">
     <!-- Theme Stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/css/style.css" rel="stylesheet" type="text/css">
-    <!-- Switch Color Style css -->
-    <link href="https://www.spheretheme.com/html/steam/assets/css/color/skin-default.css" data-style="styles" rel="stylesheet">
+
 </head>
 
-<body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i class="icofont icofont-bubble-up"></i></a>
+<body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i
+        class="icofont icofont-bubble-up"></i></a>
 <div class="wrapper">
     <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Loader Start -->
@@ -82,7 +89,9 @@
                         <nav class="navbar navbar-expand-md">
                             <div class="navbar-header">
                                 <span class="menutext d-block d-md-none">Menu</span>
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button"><i class="icofont icofont-navigation-menu"></i></button>
+                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse"
+                                        class="btn btn-navbar navbar-toggler" type="button"><i
+                                        class="icofont icofont-navigation-menu"></i></button>
                             </div>
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
@@ -90,21 +99,20 @@
                                         <a href="#" data-toggle="dropdown">HOME</a>
                                     </li>
                                     <li class="nav-item"><a href="about.html">about us</a></li>
-                                    <li class="nav-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Menu</a>
+                                    <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"
+                                                                     data-toggle="dropdown">Our Menu</a>
                                         <div class="dropdown-menu">
                                             <div class="dropdown-inner">
                                                 <ul class="list-unstyled">
-                                                    <li><a href="menu.html">Menu Options 1</a></li>
-                                                    <li><a href="menu-2.html">Menu Options 2</a></li>
-                                                    <li><a href="menu.html">Menu Options 1</a></li>
-                                                    <li><a href="menu-2.html">Menu Options 2</a></li>
-                                                    <li><a href="menu.html">Menu Options 1</a></li>
-                                                    <li><a href="menu-2.html">Menu Options 2</a></li>
+                                                    <li><a href="menu1.html">Paleo</a></li>
+                                                    <li><a href="menu2.html">Keto</a></li>
+                                                    <li><a href="menu3.html">Vegan</a></li>
+                                                    <li><a href="menu4.html">Gluten-Free</a></li>
+                                                    <li><a href="menu5.html">Freestyle</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </li>
-
 
 
                                 </ul>
@@ -147,7 +155,9 @@
                             <i class="icofont icofont-ui-press hr-icon"></i>
                             <span class="hr-simple right"></span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget lobortis nulla.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in
+                            suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget
+                            lobortis nulla.</p>
                     </div>
                     <!-- Title Content End -->
                     <div class="col-sm-12 col-xs-12">
@@ -157,19 +167,20 @@
                                 <a class="nav-link active" href="#all" data-toggle="tab" aria-expanded="true">all</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#breakfast" data-toggle="tab" aria-expanded="false">breakfast</a>
+                                <a class="nav-link" href="#breakfast" data-toggle="tab"
+                                   aria-expanded="false">Paleo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#lunch" data-toggle="tab" aria-expanded="false">lunch</a>
+                                <a class="nav-link" href="#lunch" data-toggle="tab" aria-expanded="false">Keto</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#dinner" data-toggle="tab" aria-expanded="false">dinner</a>
+                                <a class="nav-link" href="#dinner" data-toggle="tab" aria-expanded="false">Vegan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#drinks" data-toggle="tab" aria-expanded="false">drinks</a>
+                                <a class="nav-link" href="#drinks" data-toggle="tab" aria-expanded="false">Gluten-Free</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#others" data-toggle="tab" aria-expanded="false">others</a>
+                                <a class="nav-link" href="#others" data-toggle="tab" aria-expanded="false">Freestyle</a>
                             </li>
                         </ul>
                         <!--  Menu Tabs Start  -->
@@ -206,19 +217,24 @@
                                                 <span>Lorem ipsum is simply dummy text of the printing and type setting industry.</span>
                                                 <div class="price">$35.00</div>
                                                 <a class="order" href="order?id=1&action=add">Order</a>
+                                    <c:forEach items="${foodList}" var="food" varStatus="loop">
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="box">
+                                                <div class="image">
+                                                    <img src="img/01.jpg" alt="image" title="image" class="img-fluid">
+                                                </div>
+                                                <div class="caption">
+                                                    <h4><c:out value="${food.name}"/></h4>
+                                                    <p class="des"><c:out value="Type: ${food.type}"/></p>
+                                                    <p class="des"><c:out value="${food.calories} kcal"/></p>
+                                                    <p class="des"><c:out value="Popularity: ${food.order_count} times ordered! "/></p>
+                                                    <span><c:out value="${food.description}"/></span>
+                                                    <div class="price"><c:out value="$${food.price}"/></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- Box End -->
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    </c:forEach>
 
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                    </div>
                                 </div>
                             </div>
                             <!--  Menu Tab End  -->
@@ -233,8 +249,6 @@
         </div>
     </div>
     <!-- Food Menu End -->
-
-
 
 
     <!-- Footer Start -->
@@ -256,7 +270,7 @@
 </div>
 
 <!-- jquery -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery/jquery.min.js"></script>
+<script src="./js/jquery.min.js"></script>
 <!-- jquery Validate -->
 <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
 <!-- popper js -->
@@ -274,10 +288,9 @@
 <!-- mb.YTPlayer js code-->
 <script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
 <!-- Switch Style js -->
-<script src="https://www.spheretheme.com/html/steam/assets/switch-style/switch-style.js"></script>
+<script src="./js/switch-style.js"></script>
 <!--internal js-->
 <script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
-
 
 
 </body>
