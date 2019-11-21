@@ -19,7 +19,7 @@
     <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"
           rel="stylesheet">
     <!-- icofont -->
-    <link href="./css/icofont.css" rel="stylesheet" type="text/css">
+    <link href="css/icofont.css" rel="stylesheet" type="text/css">
     <!-- crousel css -->
     <link href="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/assets/owl.carousel.min.css"
           rel="stylesheet" type="text/css">
@@ -35,10 +35,74 @@
     <!-- Theme Stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/css/style.css" rel="stylesheet" type="text/css">
 
+    <!-- jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery Validate -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
+    <!-- popper js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- owlcarousel js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
+    <!--inview js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
+    <!--CountTo js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
+    <!-- Animated Headlines js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
+    <!-- mb.YTPlayer js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Switch Style js -->
+    <script src="js/switch-style.js"></script>
+    <!--internal js-->
+    <script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
+
 </head>
 
-<body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i
-        class="icofont icofont-bubble-up"></i></a>
+<body class="header-0 wide-layout">
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('#mainFilter a').click(function () {
+            var type = $(this).text();
+            $.ajax({
+                url: "${pageContext.request.contextPath}/main",
+                type: "POST",
+                data: {filter : type},
+                success: function (data) {
+                    console.log(data);
+
+                    var html = '';
+
+                    $.each(data, function (index,value) {
+                        html += '                      <div class="col-md-6 col-sm-6 col-xs-12">\n' +
+                            '                                            <div class="box">\n' +
+                            '                                                <div class="image">\n' +
+                            '                                                    <img src="${pageContext.request.contextPath}/upload?imageId=' + value.image_id +'" alt="image" title="image" class="img-fluid">\n' +
+                            '                                                </div>\n' +
+                            '                                                <div class="caption">\n' +
+                            '                                                    <h4>' + value.name +'</h4>\n' +
+                            '                                                    <p class="des">Type:' + value.type +'</p>\n' +
+                            '                                                    <p class="des">' + value.calories +'kcal</p>\n' +
+                            '                                                    <p class="des">Popularity: ' + value.order_count +' times ordered!</p>\n' +
+                            '                                                    <span>' + value.description +'</span>\n' +
+                            '                                                    <div class="price">' + value.price +'</div>\n' +
+                            '                                                </div>\n' +
+                            '                                            </div>\n' +
+                            '                                        </div>\n';
+                    });
+
+                    $('#foodContent').html(html);
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+<a href="#" class="bottom-top" style="display: block;"><i class="icofont icofont-bubble-up"></i></a>
 <div class="wrapper">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
@@ -89,9 +153,9 @@
                         <nav class="navbar navbar-expand-md">
                             <div class="navbar-header">
                                 <span class="menutext d-block d-md-none">Menu</span>
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse"
-                                        class="btn btn-navbar navbar-toggler" type="button"><i
-                                        class="icofont icofont-navigation-menu"></i></button>
+                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button">
+                                    <i class="icofont icofont-navigation-menu"></i>
+                                </button>
                             </div>
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
@@ -162,16 +226,16 @@
                     <!-- Title Content End -->
                     <div class="col-sm-12 col-xs-12">
                         <!--  Menu Tabs Start  -->
-                        <ul class="nav nav-tabs list-inline">
+                        <ul class="nav nav-tabs list-inline" id="mainFilter">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#all" data-toggle="tab" aria-expanded="true">all</a>
+                                <a class="nav-link active" href="#" data-toggle="tab" aria-expanded="true">all</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#breakfast" data-toggle="tab"
                                    aria-expanded="false">Paleo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#lunch" data-toggle="tab" aria-expanded="false">Keto</a>
+                                <a class="nav-link" href='#Keto' data-toggle="tab" aria-expanded="false">Keto</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#dinner" data-toggle="tab" aria-expanded="false">Vegan</a>
@@ -185,63 +249,13 @@
                         </ul>
                         <!--  Menu Tabs Start  -->
 
-                        <!--  Menu Tabs Content Start  -->
                         <div class="tab-content">
-                            <!--  Menu Tab Start  -->
                             <div class="tab-pane show active" id="all">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <!-- Box Start -->
-                                        <div class="box">
-                                            <div class="image">
-                                                <img src="assets/images/our-menu/01.jpg" alt="image" title="image" class="img-fluid">
-                                            </div>
-                                            <div class="caption">
-                                                <h4>Food Title Here</h4>
-                                                <p class="des">Cursus / Dictum / Risus</p>
-                                                <span>Lorem ipsum is simply dummy text of the printing and type setting industry.</span>
-                                                <div class="price">$35.00</div>
-                                            </div>
-                                        </div>
-                                        <!-- Box End -->
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <!-- Box Start -->
-                                        <div class="box">
-                                            <div class="image">
-                                                <img src="assets/images/our-menu/04.jpg" alt="image" title="image" class="img-fluid">
-                                            </div>
-                                            <div class="caption">
-                                                <h4>Food Title Here</h4>
-                                                <p class="des">Cursus / Dictum / Risus</p>
-                                                <span>Lorem ipsum is simply dummy text of the printing and type setting industry.</span>
-                                                <div class="price">$35.00</div>
-                                                <a class="order" href="order?id=1&action=add">Order</a>
-                                    <c:forEach items="${foodList}" var="food" varStatus="loop">
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="box">
-                                                <div class="image">
-                                                    <img src="img/01.jpg" alt="image" title="image" class="img-fluid">
-                                                </div>
-                                                <div class="caption">
-                                                    <h4><c:out value="${food.name}"/></h4>
-                                                    <p class="des"><c:out value="Type: ${food.type}"/></p>
-                                                    <p class="des"><c:out value="${food.calories} kcal"/></p>
-                                                    <p class="des"><c:out value="Popularity: ${food.order_count} times ordered! "/></p>
-                                                    <span><c:out value="${food.description}"/></span>
-                                                    <div class="price"><c:out value="$${food.price}"/></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
+                                <div class="row" id="foodContent">
 
                                 </div>
                             </div>
-                            <!--  Menu Tab End  -->
-
-
                         </div>
-                        <!--  Menu Tabs Content End  -->
 
                     </div>
                 </div>
@@ -268,29 +282,6 @@
     <!-- Footer End  -->
 
 </div>
-
-<!-- jquery -->
-<script src="./js/jquery.min.js"></script>
-<!-- jquery Validate -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
-<!-- popper js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
-<!-- bootstrap js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-<!-- owlcarousel js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
-<!--inview js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
-<!--CountTo js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
-<!-- Animated Headlines js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
-<!-- mb.YTPlayer js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
-<!-- Switch Style js -->
-<script src="./js/switch-style.js"></script>
-<!--internal js-->
-<script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
 
 
 </body>
