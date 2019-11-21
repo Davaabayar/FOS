@@ -4,16 +4,6 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-    <servlet>
-    	<servlet-name>SelectFoodServlet</servlet-name>
-    	<display-name>SelectFoodServlet</display-name>
-    	<description></description>
-    	<servlet-class>edu.mum.cs.cs472.controller.SelectFoodServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-    	<servlet-name>SelectFoodServlet</servlet-name>
-    	<url-pattern>/selectfood</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
