@@ -1,6 +1,7 @@
 package edu.mum.cs.cs472.dao;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Order {
 	private int orderId;
@@ -8,16 +9,26 @@ public class Order {
 	private Date created;
 	private int status;
 	private User user;
+	private List<Food> foods;
 	
+	public List<Food> getFoods() {
+		return foods;
+	}
+	public void setFoods(List<Food> foods) {
+		this.foods = foods;
+	}
 	public Order() {
 		super();
 	}
-	public Order(int orderId, int totalAmount, Date created, int status, User user) {
+	
+	public Order(int orderId, int totalAmount, Date created, int status, User user, List<Food> foods) {
+		super();
 		this.orderId = orderId;
 		this.totalAmount = totalAmount;
 		this.created = created;
 		this.status = status;
 		this.user = user;
+		this.foods = foods;
 	}
 	public int getOrderId() {
 		return orderId;

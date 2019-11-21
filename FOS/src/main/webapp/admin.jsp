@@ -36,6 +36,11 @@
                     <h4 class="card-header">Food Order</h4>
                     <div id="accordion">
                         <div class="card">
+
+                            <c:forEach items="${orderList}" var="order" varStatus="loop">
+                                <c:out value="${order.user.first_name}" />
+                            </c:forEach>
+
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
