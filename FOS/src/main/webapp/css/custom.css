@@ -14,6 +14,7 @@
 	padding: 10px 15px;
 	border-radius: 4px;
 	background: #e54c2a;
+	bottom: 15px;
 }
 
 #cartTost {
@@ -129,4 +130,14 @@
 		font-size: 20px;
 		float: right;
 	}
-	
+	.bread-crumb{
+		background: url('https://www.aafoodservice.com/wp-content/themes/custom-theme/img/slider-v1704.jpg') no-repeat center center;
+		background-size:cover;
+		height:60%;
+	}
+	.bread-crumb .matter{
+		bottom:45%;
+	}
+	.cd-headline.clip h3, .cd-headline.clip h4{
+		font-size:65px !important;
+	}

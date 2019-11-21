@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet {
             System.out.println(loggedUser.toString());
         }
         session.invalidate();
-        response.sendRedirect(request.getContextPath() + "/login");
+        response.sendRedirect(request.getContextPath() + "/");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

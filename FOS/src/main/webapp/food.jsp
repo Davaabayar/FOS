@@ -29,7 +29,7 @@
 <%@ include file="fragments/header.jsp" %>
 <div class="container">
     <div style="margin-top: 100px;">
-        <img src="${pageContext.request.contextPath}/upload?imageId=${food.image_id}" id="foodImage" height="300" width="300"/>
+        <img src="${pageContext.request.contextPath}/upload?imageId=${food.image_id}" id="foodImage" height="auto" width="300"/>
         <%@ include file="upload.jsp" %>
     </div>
     <form style="margin-top: 22px;" action="food" method="POST">

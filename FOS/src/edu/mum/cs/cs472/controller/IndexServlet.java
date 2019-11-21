@@ -35,7 +35,7 @@ public class IndexServlet extends HttpServlet {
         String filter = request.getParameter("filter");
         List<Food> foodList = null;
 
-        if(filter.equals("all")) {
+        if(filter.equals("All")) {
             foodList = foodService.getAllFood();
         } else {
             foodList = foodService.getFoodByType(filter);

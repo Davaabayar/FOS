@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#e54c2a">
     <!-- Favicon -->
     <link type="image/x-icon" rel="shortcut icon" href="favicon.png">
-    <title>STEAM - Restaurant and Drinks Responsive HTML5 Template</title>
+    <title>Food Order System</title>
     <meta name="description"
           content="STEAM - Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -87,7 +87,7 @@
     		$('#myModal').modal('hide');
     	}
     	
-        $('#mainFilter a').click(function () {
+        $('#mainFilter a, .dropdown-inner a').click(function () {
             var type = $(this).text();
             $('.loader').show();
             $.ajax({
@@ -109,8 +109,7 @@
                             '                                                    <h4>' + value.name +'</h4>\n' +
                             '                                                    <p class="des">Type:' + value.type +'</p>\n' +
                             '                                                    <p class="des">' + value.calories +'kcal</p>\n' +
-                            '                                                    <p class="des">Popularity: ' + value.order_count +' times ordered!</p>\n' +
-                            '                                                    <span>' + value.description +'</span>\n' +
+                            '                                                    <p class="des">' + value.description +'</p>\n' +
                             '                                                    <div class="price">$' + value.price +'</div>\n' +
                             '													<a class="order" href="#" onclick="addtocart(event, '+value.foodId+',\'add\')">Add</a>'+
                             '                                                </div>\n' +
@@ -121,7 +120,6 @@
                     $('#foodContent').html(html);
 
                     $('.loader').hide();
-
                 },
                 error: function(error) {
                     console.log(error);
@@ -204,11 +202,12 @@
                                         <div class="dropdown-menu">
                                             <div class="dropdown-inner">
                                                 <ul class="list-unstyled">
-                                                    <li><a href="menu1.html">Paleo</a></li>
-                                                    <li><a href="menu2.html">Keto</a></li>
-                                                    <li><a href="menu3.html">Vegan</a></li>
-                                                    <li><a href="menu4.html">Gluten-Free</a></li>
-                                                    <li><a href="menu5.html">Freestyle</a></li>
+                                                    <li><a href="#">All</a></li>
+                                                    <li><a href="#">Paleo</a></li>
+                                                    <li><a href="#">Keto</a></li>
+                                                    <li><a href="#">Vegan</a></li>
+                                                    <li><a href="#">Gluten-Free</a></li>
+                                                    <li><a href="#">Freestyle</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -236,7 +235,7 @@
                     <h4>LOVES <span class="cd-words-wrapper" style="width: 81.743px; overflow: hidden;">
                                 <b class="is-visible">HEALTHY</b>
                                 <b class="is-hidden">QUALITY</b>
-                                <b class="is-hidden">TESTY</b>
+                                <b class="is-hidden">TASTY</b>
                             </span>FOOD</h4>
                 </div>
             </div>
@@ -264,7 +263,7 @@
                         <!--  Menu Tabs Start  -->
                         <ul class="nav nav-tabs list-inline" id="mainFilter">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#" data-toggle="tab" aria-expanded="true">all</a>
+                                <a class="nav-link active" href="#" data-toggle="tab" aria-expanded="true">All</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#breakfast" data-toggle="tab"

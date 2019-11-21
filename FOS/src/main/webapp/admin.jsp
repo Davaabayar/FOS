@@ -27,9 +27,9 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Welcome to Admin Panel asd asd</h1>
-
-        <!-- Marketing Icons Section -->
+        <a href="${pageContext.request.contextPath}/logout" class="btn btn-primary mb-2 float-right">Logout</a>
+        <h1 class="my-4">Welcome to Admin Panel</h1>
+		<!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
