@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "IndexServlet", urlPatterns = "/", description = "IndexServlet")
+@WebServlet(name = "IndexServlet", urlPatterns = "/main", description = "IndexServlet")
 public class IndexServlet extends HttpServlet {
     private FoodService foodService;
     public IndexServlet() {
@@ -35,7 +35,7 @@ public class IndexServlet extends HttpServlet {
         String filter = request.getParameter("filter");
         List<Food> foodList = null;
 
-        if(filter.equals("")) {
+        if(filter.equals("all")) {
             foodList = foodService.getAllFood();
         } else {
             foodList = foodService.getFoodByType(filter);

@@ -19,7 +19,7 @@
     <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"
           rel="stylesheet">
     <!-- icofont -->
-    <link href="./css/icofont.css" rel="stylesheet" type="text/css">
+    <link href="css/icofont.css" rel="stylesheet" type="text/css">
     <!-- crousel css -->
     <link href="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/assets/owl.carousel.min.css"
           rel="stylesheet" type="text/css">
@@ -35,6 +35,29 @@
     <!-- Theme Stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/css/style.css" rel="stylesheet" type="text/css">
 
+    <!-- jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery Validate -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
+    <!-- popper js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- owlcarousel js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
+    <!--inview js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
+    <!--CountTo js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
+    <!-- Animated Headlines js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
+    <!-- mb.YTPlayer js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Switch Style js -->
+    <script src="js/switch-style.js"></script>
+    <!--internal js-->
+    <script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
+
 </head>
 
 <body class="header-0 wide-layout">
@@ -43,7 +66,7 @@
         $('#mainFilter a').click(function () {
             var type = $(this).text();
             $.ajax({
-                url: "${pageContext.request.contextPath}/IndexServlet",
+                url: "${pageContext.request.contextPath}/main",
                 type: "POST",
                 data: {filter : type},
                 success: function (data) {
@@ -68,9 +91,9 @@
                             '                                            </div>\n' +
                             '                                        </div>\n';
                     });
-                    
+
                     $('#foodContent').html(html);
-                    
+
                 },
                 error: function(error) {
                     console.log(error);
@@ -259,29 +282,6 @@
     <!-- Footer End  -->
 
 </div>
-
-<!-- jquery -->
-<script src="./js/jquery.min.js"></script>
-<!-- jquery Validate -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
-<!-- popper js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
-<!-- bootstrap js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-<!-- owlcarousel js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
-<!--inview js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
-<!--CountTo js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
-<!-- Animated Headlines js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
-<!-- mb.YTPlayer js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
-<!-- Switch Style js -->
-<script src="./js/switch-style.js"></script>
-<!--internal js-->
-<script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
 
 
 </body>
