@@ -14,12 +14,12 @@
     <title>STEAM - Restaurant and Drinks Responsive HTML5 Template</title>
     <meta name="description"
           content="STEAM - Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
-
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Bootstrap stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"
           rel="stylesheet">
     <!-- icofont -->
-    <link href="./css/icofont.css" rel="stylesheet" type="text/css">
+    <link href="css/icofont.css" rel="stylesheet" type="text/css">
     <!-- crousel css -->
     <link href="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/assets/owl.carousel.min.css"
           rel="stylesheet" type="text/css">
@@ -35,10 +35,110 @@
     <!-- Theme Stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/css/style.css" rel="stylesheet" type="text/css">
 
+    <!-- jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery Validate -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
+    <!-- popper js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!-- owlcarousel js -->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
+    <!--inview js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
+    <!--CountTo js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
+    <!-- Animated Headlines js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
+    <!-- mb.YTPlayer js code-->
+    <script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Switch Style js -->
+    <script src="js/switch-style.js"></script>
+    <!--internal js-->
+    <script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i
-        class="icofont icofont-bubble-up"></i></a>
+<body class="header-0 wide-layout">
+<script type='text/javascript'>
+	function addtocart(event, foodId, action){
+		event = event || window.event;
+		event.preventDefault();
+		console.log("add to cart"+foodId);
+		$.ajax({
+	        url: "${pageContext.request.contextPath}/order?id="+foodId+"&action="+action,
+	        type: "GET",
+	        success: function (data) {
+	        	console.log('SUCCESS');
+	        	console.log(data);
+	            $("#cartTost").html(data);
+	        },
+	        error: function(error) {
+	            console.log(error);
+	        }
+	    });
+	}
+    $(document).ready(function() {
+    	var sh = ${show ? true : false};
+    	if(sh) {
+    		$('#myModal').modal('show');
+    	} else {
+    		$('#myModal').modal('hide');
+    	}
+    	
+        $('#mainFilter a').click(function () {
+            var type = $(this).text();
+            $('.loader').show();
+            $.ajax({
+                url: "${pageContext.request.contextPath}/main",
+                type: "POST",
+                data: {filter : type},
+                success: function (data) {
+                    console.log(data);
+
+                    var html = '';
+
+                    $.each(data, function (index,value) {
+                        html += '                      <div class="col-md-6 col-sm-6 col-xs-12">\n' +
+                            '                                            <div class="box">\n' +
+                            '                                                <div class="image">\n' +
+                            '                                                    <img src="${pageContext.request.contextPath}/upload?imageId=' + value.image_id +'" alt="image" title="image" class="img-fluid">\n' +
+                            '                                                </div>\n' +
+                            '                                                <div class="caption">\n' +
+                            '                                                    <h4>' + value.name +'</h4>\n' +
+                            '                                                    <p class="des">Type:' + value.type +'</p>\n' +
+                            '                                                    <p class="des">' + value.calories +'kcal</p>\n' +
+                            '                                                    <p class="des">Popularity: ' + value.order_count +' times ordered!</p>\n' +
+                            '                                                    <span>' + value.description +'</span>\n' +
+                            '                                                    <div class="price">$' + value.price +'</div>\n' +
+                            '													<a class="order" href="#" onclick="addtocart(event, '+value.foodId+',\'add\')">Add</a>'+
+                            '                                                </div>\n' +
+                            '                                            </div>\n' +
+                            '                                        </div>\n';
+                    });
+
+                    $('#foodContent').html(html);
+
+                    $('.loader').hide();
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+        
+        $('#mainFilter a').first().click();
+        addtocart();
+        $("#placeYourOrder").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#mainFilter").offset().top
+            }, 800);
+        });
+    });
+</script>
+<a href="#" class="bottom-top" style="display: block;"><i class="icofont icofont-bubble-up"></i></a>
 <div class="wrapper">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
@@ -89,9 +189,9 @@
                         <nav class="navbar navbar-expand-md">
                             <div class="navbar-header">
                                 <span class="menutext d-block d-md-none">Menu</span>
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse"
-                                        class="btn btn-navbar navbar-toggler" type="button"><i
-                                        class="icofont icofont-navigation-menu"></i></button>
+                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button">
+                                    <i class="icofont icofont-navigation-menu"></i>
+                                </button>
                             </div>
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
@@ -122,7 +222,7 @@
                     <!-- Main Menu End -->
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12 button-top paddleft">
-                    <a class="btn-primary btn" href="reservation.html">Book Your Table</a>
+                    <a class="btn-primary btn" href="#mainFilter" id="placeYourOrder">Book Your Meal</a>
                 </div>
             </div>
         </div>
@@ -162,16 +262,16 @@
                     <!-- Title Content End -->
                     <div class="col-sm-12 col-xs-12">
                         <!--  Menu Tabs Start  -->
-                        <ul class="nav nav-tabs list-inline">
+                        <ul class="nav nav-tabs list-inline" id="mainFilter">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#all" data-toggle="tab" aria-expanded="true">all</a>
+                                <a class="nav-link active" href="#" data-toggle="tab" aria-expanded="true">all</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#breakfast" data-toggle="tab"
                                    aria-expanded="false">Paleo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#lunch" data-toggle="tab" aria-expanded="false">Keto</a>
+                                <a class="nav-link" href='#Keto' data-toggle="tab" aria-expanded="false">Keto</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#dinner" data-toggle="tab" aria-expanded="false">Vegan</a>
@@ -185,36 +285,13 @@
                         </ul>
                         <!--  Menu Tabs Start  -->
 
-                        <!--  Menu Tabs Content Start  -->
                         <div class="tab-content">
-                            <!--  Menu Tab Start  -->
                             <div class="tab-pane show active" id="all">
-                                <div class="row">
-                                    <c:forEach items="${foodList}" var="food" varStatus="loop">
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="box">
-                                                <div class="image">
-                                                    <img src="img/01.jpg" alt="image" title="image" class="img-fluid">
-                                                </div>
-                                                <div class="caption">
-                                                    <h4><c:out value="${food.name}"/></h4>
-                                                    <p class="des"><c:out value="Type: ${food.type}"/></p>
-                                                    <p class="des"><c:out value="${food.calories} kcal"/></p>
-                                                    <p class="des"><c:out value="Popularity: ${food.order_count} times ordered! "/></p>
-                                                    <span><c:out value="${food.description}"/></span>
-                                                    <div class="price"><c:out value="$${food.price}"/></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
+                                <div class="row" id="foodContent">
 
                                 </div>
                             </div>
-                            <!--  Menu Tab End  -->
-
-
                         </div>
-                        <!--  Menu Tabs Content End  -->
 
                     </div>
                 </div>
@@ -241,31 +318,25 @@
     <!-- Footer End  -->
 
 </div>
-
-<!-- jquery -->
-<script src="./js/jquery.min.js"></script>
-<!-- jquery Validate -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery-validation/jquery.validate.min.js"></script>
-<!-- popper js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/popper/popper.min.js"></script>
-<!-- bootstrap js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-<!-- owlcarousel js -->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/owlcarousel2/owl.carousel.min.js"></script>
-<!--inview js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.inview/jquery.inview.min.js"></script>
-<!--CountTo js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/jquery.countTo/jquery.countTo.js"></script>
-<!-- Animated Headlines js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/animated-headlines/animated-headlines.js"></script>
-<!-- mb.YTPlayer js code-->
-<script src="https://www.spheretheme.com/html/steam/assets/libs/mb.YTPlayer/jquery.mb.YTPlayer.min.js"></script>
-<!-- Switch Style js -->
-<script src="./js/switch-style.js"></script>
-<!--internal js-->
-<script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
-
-
+<div id="cartTost"></div>
+	<div id="myModal" class="modal fade in" style="display: none;">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">check</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Great!</h4>	
+				<p><c:out value="${result}"/></p>
+				<button class="btn btn-success" data-dismiss="modal"><span>See You Soon.</span> <i class="material-icons"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+	<c:out value="${result}"/>
 </body>
 
 </html>

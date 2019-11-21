@@ -26,6 +26,7 @@ import java.util.List;
 public class UploadServlet extends HttpServlet {
 
     private UploadService uploadService;
+   // private String UPLOAD_DIRECTORY = "/home/mb/uploads";
     private String UPLOAD_DIRECTORY = "C:\\uploads";
 
     public UploadServlet() {
