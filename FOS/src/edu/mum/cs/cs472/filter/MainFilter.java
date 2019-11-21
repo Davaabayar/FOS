@@ -17,8 +17,7 @@ public class MainFilter implements Filter {
         HttpServletRequest rq = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         String path = rq.getRequestURI();
-
-        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload") || path.contains("/js/")) {
+        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/main") || path.contains("/upload") || path.contains("/js/") || path.contains("/css/")) {
             chain.doFilter(request, response);
         } else {
             HttpSession session = rq.getSession();
