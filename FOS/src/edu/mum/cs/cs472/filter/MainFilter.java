@@ -28,7 +28,7 @@ public class MainFilter implements Filter {
 
         String path = rq.getRequestURI();
 
-        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload")) {
+        if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload") || path.contains("/js/")) {
             chain.doFilter(request, response);
         } else {
             HttpSession session = rq.getSession();
