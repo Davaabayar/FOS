@@ -1,6 +1,5 @@
 package edu.mum.cs.cs472.dao;
-
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class Order {
@@ -10,6 +9,7 @@ public class Order {
 	private int status;
 	private User user;
 	private List<Food> foods;
+	private List<Item> items;
 	
 	public List<Food> getFoods() {
 		return foods;
@@ -21,6 +21,21 @@ public class Order {
 		super();
 	}
 	
+	public Order(int totalAmount, Date created, int status, User user, List<Item> items) {
+	
+		this.totalAmount = totalAmount;
+		this.created = created;
+		this.status = status;
+		this.user = user;
+		this.items = items;
+	}
+	public Order(int totalAmount, int status, List<Food> foods, User user, Date date) {
+		this.totalAmount = totalAmount;
+		this.created = date;
+		this.status = status;
+		this.user = user;
+		this.foods = foods;
+	}
 	public Order(int orderId, int totalAmount, Date created, int status, User user, List<Food> foods) {
 		super();
 		this.orderId = orderId;
@@ -60,12 +75,17 @@ public class Order {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 	@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", totalAmount=" + totalAmount + ", created=" + created + ", status="
-				+ status + ", user=" + user + "]";
+				+ status + ", user=" + user + ", foods=" + foods + "]";
 	}
-	
-	
 	
 }

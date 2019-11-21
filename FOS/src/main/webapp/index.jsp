@@ -229,7 +229,7 @@
                         <div class="tab-content">
                             <div class="tab-pane show active" id="all">
                                 <div class="row" id="foodContent">
-                                    
+
                                 </div>
                             </div>
                         </div>
