@@ -57,14 +57,14 @@
                         </c:if>>Keto
                 </option>
                 <option
-                        <c:if test="${food.type eq 'Vegetarian'}">
+                        <c:if test="${food.type eq 'Vegan'}">
                             <c:out value=" selected "/>
-                        </c:if>>Vegetarian
+                        </c:if>>Vegan
                 </option>
                 <option
-                        <c:if test="${food.type eq 'Gluton free'}">
+                        <c:if test="${food.type eq 'Gluten-Free'}">
                             <c:out value=" selected "/>
-                        </c:if>>Gluton free
+                        </c:if>>Gluten-Free
                 </option>
                 <option
                         <c:if test="${food.type eq 'Paleo'}">
@@ -73,9 +73,9 @@
                     Paleo
                 </option>
                 <option
-                        <c:if test="${food.type eq 'Free Style'}">
+                        <c:if test="${food.type eq 'Freestyle'}">
                             <c:out value=" selected "/>
-                        </c:if>>Free Style
+                        </c:if>>Freestyle
                 </option>
             </select>
         </div>
