@@ -34,7 +34,7 @@
           type="text/css">
     <!-- Theme Stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/css/style.css" rel="stylesheet" type="text/css">
-
+	<link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="header-0 wide-layout"><a href="#" class="bottom-top" style="display: block;"><i
@@ -69,7 +69,7 @@
     </div>
     <!-- Loader End -->
 
-    <!--  Header Start  -->
+  <!--  Header Start  -->
     <header>
         <!--Top Header End -->
 
@@ -89,32 +89,16 @@
                         <nav class="navbar navbar-expand-md">
                             <div class="navbar-header">
                                 <span class="menutext d-block d-md-none">Menu</span>
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse"
-                                        class="btn btn-navbar navbar-toggler" type="button"><i
-                                        class="icofont icofont-navigation-menu"></i></button>
+                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggler" type="button">
+                                    <i class="icofont icofont-navigation-menu"></i>
+                                </button>
                             </div>
                             <div class="collapse navbar-collapse navbar-ex1-collapse padd0">
                                 <ul class="nav navbar-nav">
                                     <li class="nav-item">
-                                        <a href="#" data-toggle="dropdown">HOME</a>
+                                        <a href="${pageContext.request.contextPath}">HOME</a>
                                     </li>
-                                    <li class="nav-item"><a href="about.html">about us</a></li>
-                                    <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"
-                                                                     data-toggle="dropdown">Our Menu</a>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-inner">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="menu1.html">Paleo</a></li>
-                                                    <li><a href="menu2.html">Keto</a></li>
-                                                    <li><a href="menu3.html">Vegan</a></li>
-                                                    <li><a href="menu4.html">Gluten-Free</a></li>
-                                                    <li><a href="menu5.html">Freestyle</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-
-
+                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/about2.jsp">about us</a></li>                                   
                                 </ul>
                             </div>
                         </nav>
@@ -122,7 +106,7 @@
                     <!-- Main Menu End -->
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12 button-top paddleft">
-                    <a class="btn-primary btn" href="reservation.html">Book Your Table</a>
+                    <a class="btn-primary btn" href="${pageContext.request.contextPath}/#mainFilter" id="placeYourOrder">Book Your Meal</a>
                 </div>
             </div>
         </div>

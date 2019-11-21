@@ -17,8 +17,7 @@
 }
 
 .user-table-container{
-    width: 60%;
-    margin-left: 5%;
+    width: 100%;
 }
 
 #food-list-container{
@@ -30,3 +29,9 @@
     display: inline-block;
 }
 
+table{
+	border-collapse:collapse;
+}
+table td{
+	border:1px solid #ccc;
+}

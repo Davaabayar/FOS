@@ -25,7 +25,7 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> getAllOrder() {
 		String queryOrders = "select a.order_id,a.totalAmount,a.created,a.status,a.user_id,a.status," +
 				"b.first_name,b.last_name,b.password,b.email,b.role,b.created as userCreated,b.image_id,b.address_id,b.status as userStatus" +
-				" from orders a INNER JOIN users b ON a.user_id=b.user_id WHERE a.status='ordered'";
+				" from orders a INNER JOIN users b ON a.user_id=b.user_id order by a.created desc";
 		List<Order> orderList = new ArrayList<>();
 		try {
 			PreparedStatement preparedStatement = this.getDbConnection().getConnection().prepareStatement(queryOrders);
@@ -60,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
 							resultOrder.getInt("order_id"),
 							resultOrder.getInt("totalAmount"),
 							new Date(resultOrder.getDate("created").getTime()),
-							(resultOrder.getString("status") == "ordered" ? 1 : 0),
+							(resultOrder.getString("status").equals("ordered") ? 1 : 0),
 							new User(
 									resultOrder.getInt("user_id"),
 									resultOrder.getString("first_name"),

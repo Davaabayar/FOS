@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 			Cookie loginCookie = new Cookie("email", email);
 			loginCookie.setMaxAge(30 * 60);
 			response.addCookie(loginCookie);
-			if (user.getRole().equals("client")) {
+			if (user.getRole().name().equals("client")) {
 				response.sendRedirect(request.getContextPath() + "/");
 			} else {
 				if (request.getSession().getAttribute("cart") != null) {
