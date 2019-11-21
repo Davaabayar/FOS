@@ -205,6 +205,7 @@
                                                 <p class="des">Cursus / Dictum / Risus</p>
                                                 <span>Lorem ipsum is simply dummy text of the printing and type setting industry.</span>
                                                 <div class="price">$35.00</div>
+                                                <a class="order" href="order?id=1&action=add">Order</a>
                                             </div>
                                         </div>
                                         <!-- Box End -->
