@@ -16,16 +16,6 @@ public class MainFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest rq = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-        Cookie[] cookies = rq.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("JSESSIONID")) {
-                    System.out.println("JSESSIONID=" + cookie.getValue());
-                    break;
-                }
-            }
-        }
-
         String path = rq.getRequestURI();
 
         if (path.equals("/FOS/") || path.contains("/login") || path.contains("/register") || path.contains("/logout") || path.contains("/upload") || path.contains("/js/")) {
