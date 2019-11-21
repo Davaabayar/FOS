@@ -25,7 +25,8 @@
     width: 300px;
 }
 
-#button-form{
+.button-form{
+    width: 50px;
     display: inline-block;
 }
 
