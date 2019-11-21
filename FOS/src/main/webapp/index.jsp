@@ -122,7 +122,7 @@
                     <!-- Main Menu End -->
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12 button-top paddleft">
-                    <a class="btn-primary btn" href="reservation.html">Book Your Table</a>
+                    <a class="btn-primary btn" href="selectfood">Book Your Meal</a>
                 </div>
             </div>
         </div>

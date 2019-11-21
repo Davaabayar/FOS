@@ -44,7 +44,7 @@ public class CheckoutServlet extends HttpServlet {
 			String result = this.orderService.addOrder(newOrder);
 			if(result.equals("SUCCESS")) {
 				request.setAttribute("result", "Order successfully placed.");
-				request.getRequestDispatcher("home").forward(request,response);
+				request.getRequestDispatcher("index.jsp").forward(request,response);
 			}
 		} else {
 			response.sendRedirect(request.getContextPath() + "/");
