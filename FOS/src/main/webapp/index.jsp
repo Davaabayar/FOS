@@ -14,7 +14,7 @@
     <title>STEAM - Restaurant and Drinks Responsive HTML5 Template</title>
     <meta name="description"
           content="STEAM - Restaurant, food and Drinks HTML5 website template is Modern, Clean and Professional site template. Prefect for RESTAURANT, Bakery, Cafe, Bar, Catering, food business and for personal chef portfolio website.">
-
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Bootstrap stylesheet -->
     <link href="https://www.spheretheme.com/html/steam/assets/libs/bootstrap-4.0.0-dist/css/bootstrap.min.css"
           rel="stylesheet">
@@ -57,14 +57,39 @@
     <script src="js/switch-style.js"></script>
     <!--internal js-->
     <script src="https://www.spheretheme.com/html/steam/assets/js/internal.js"></script>
-
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="header-0 wide-layout">
 <script type='text/javascript'>
+	function addtocart(event, foodId, action){
+		event = event || window.event;
+		event.preventDefault();
+		console.log("add to cart"+foodId);
+		$.ajax({
+	        url: "${pageContext.request.contextPath}/order?id="+foodId+"&action="+action,
+	        type: "GET",
+	        success: function (data) {
+	        	console.log('SUCCESS');
+	        	console.log(data);
+	            $("#cartTost").html(data);
+	        },
+	        error: function(error) {
+	            console.log(error);
+	        }
+	    });
+	}
     $(document).ready(function() {
+    	var sh = ${show ? true : false};
+    	if(sh) {
+    		$('#myModal').modal('show');
+    	} else {
+    		$('#myModal').modal('hide');
+    	}
+    	
         $('#mainFilter a').click(function () {
             var type = $(this).text();
+            $('.loader').show();
             $.ajax({
                 url: "${pageContext.request.contextPath}/main",
                 type: "POST",
@@ -86,7 +111,8 @@
                             '                                                    <p class="des">' + value.calories +'kcal</p>\n' +
                             '                                                    <p class="des">Popularity: ' + value.order_count +' times ordered!</p>\n' +
                             '                                                    <span>' + value.description +'</span>\n' +
-                            '                                                    <div class="price">' + value.price +'</div>\n' +
+                            '                                                    <div class="price">$' + value.price +'</div>\n' +
+                            '													<a class="order" href="#" onclick="addtocart(event, '+value.foodId+',\'add\')">Add</a>'+
                             '                                                </div>\n' +
                             '                                            </div>\n' +
                             '                                        </div>\n';
@@ -94,11 +120,21 @@
 
                     $('#foodContent').html(html);
 
+                    $('.loader').hide();
+
                 },
                 error: function(error) {
                     console.log(error);
                 }
             });
+        });
+        
+        $('#mainFilter a').first().click();
+        addtocart();
+        $("#placeYourOrder").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#mainFilter").offset().top
+            }, 800);
         });
     });
 </script>
@@ -186,7 +222,7 @@
                     <!-- Main Menu End -->
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12 button-top paddleft">
-                    <a class="btn-primary btn" href="selectfood">Book Your Meal</a>
+                    <a class="btn-primary btn" href="#mainFilter" id="placeYourOrder">Book Your Meal</a>
                 </div>
             </div>
         </div>
@@ -282,8 +318,25 @@
     <!-- Footer End  -->
 
 </div>
-
-
+<div id="cartTost"></div>
+	<div id="myModal" class="modal fade in" style="display: none;">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">check</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Great!</h4>	
+				<p><c:out value="${result}"/></p>
+				<button class="btn btn-success" data-dismiss="modal"><span>See You Soon.</span> <i class="material-icons"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+	<c:out value="${result}"/>
 </body>
 
 </html>

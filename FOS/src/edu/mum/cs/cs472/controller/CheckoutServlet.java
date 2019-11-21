@@ -30,6 +30,7 @@ public class CheckoutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		boolean show = false;
 		HttpSession session = request.getSession();
 		if (session.getAttribute("cart") != null) {
 			List<Item> orderedItems = (List<Item>) session.getAttribute("cart");
@@ -43,10 +44,16 @@ public class CheckoutServlet extends HttpServlet {
 			System.out.println("WOW order object" + newOrder.toString());
 			String result = this.orderService.addOrder(newOrder);
 			if(result.equals("SUCCESS")) {
+				show = true;
 				request.setAttribute("result", "Order successfully placed.");
+				request.setAttribute("show", show);
+				if(session.getAttribute("cart") != null) {
+					session.removeAttribute("cart");
+				}
 				request.getRequestDispatcher("index.jsp").forward(request,response);
 			}
 		} else {
+			request.setAttribute("show", show);
 			response.sendRedirect(request.getContextPath() + "/");
 		}
 	}

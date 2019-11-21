@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
             Cookie loginCookie = new Cookie("email", email);
             loginCookie.setMaxAge(30 * 60);
             response.addCookie(loginCookie);
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath() + "/");
         } else {
             response.sendRedirect(request.getContextPath() + "/login?errorMsg=E-mail or password is incorrect");
         }
